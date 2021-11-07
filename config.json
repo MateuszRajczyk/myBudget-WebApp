@@ -1,0 +1,46 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "5adef5b3275fcd874b0815a0637c5800",
+      "css": "login",
+      "code": 61484,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "6274e0601f2feef7eced89146e708de0",
+      "css": "user-add",
+      "code": 59392,
+      "src": "entypo"
+    },
+    {
+      "uid": "212ab54aac31030950fec3e2448ebee9",
+      "css": "money",
+      "code": 59393,
+      "src": "modernpics"
+    },
+    {
+      "uid": "e0d15ef5945000f5f264acc35494002f",
+      "css": "basket",
+      "code": 59394,
+      "src": "typicons"
+    },
+    {
+      "uid": "8aa58289df2cc42b260897d7e61aa2c2",
+      "css": "chart-pie-alt",
+      "code": 59395,
+      "src": "iconic"
+    },
+    {
+      "uid": "ff1710a605b3fc98346903db89034558",
+      "css": "balance-scale",
+      "code": 62030,
+      "src": "fontawesome"
+    }
+  ]
+}
