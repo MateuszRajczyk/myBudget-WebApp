@@ -3,5 +3,10 @@
 .icon-money:before { content: '\e801'; } /* '' */
 .icon-basket:before { content: '\e802'; } /* '' */
 .icon-chart-pie-alt:before { content: '\e803'; } /* '' */
+.icon-lock:before { content: '\e804'; } /* '' */
+.icon-eye:before { content: '\e805'; } /* '' */
+.icon-eye-off:before { content: '\e806'; } /* '' */
+.icon-login-1:before { content: '\e807'; } /* '' */
 .icon-login:before { content: '\f02c'; } /* '' */
+.icon-mail-alt:before { content: '\f0e0'; } /* '' */
 .icon-balance-scale:before { content: '\f24e'; } /* '' */
