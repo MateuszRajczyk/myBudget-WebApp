@@ -19,92 +19,129 @@
 </head>
 
 <body>
-	
-		<header>
-			<h1 class="logo">
-				<a href="mainButton" class="mButton">My Home Budget<a/>
-				<div id="subtitle">Application to menagement your home finance</div>
-			</h1>
-		</header>
+	<header>
+		<h1 class="logo" style="float:left;">
+			<a href="mainButton" class="mButton">My Home Budget</a>
+			<div class="subtitle">Application to menagement your home finance</div>
+		</h1>
+		<img src="img/money-bag-no-back.png" class="logo-icon"/>
 		
+		<div class="adv" style="float:left">
+		
+			Start to control balance of your finances!
+		
+		</div>
+		
+		<div style="clear:both;"></div>
+		
+	</header>
+
+	<div class="container">
 		<main>
-		
-			<nav>
-			
-				<div class="button1">
-					<a href="SignIn" class="linkForSignIn"><i class="icon-login"></i>Sign in</a>
-				</div>
-				<div class="button2">
-					<a href="Register" class="linkForRegister"><i class="icon-user-add"></i>Register</a>
-				</div>
-				<div style="clear:both"></div>
-
-
-			</nav>
 			
 			<section class="descriptionApp">
 				
-				<div class="optionApp">
-				
-					<div class="oneOption1">
+				<div class="oneOption">
 					
-						<i class="icon-chart-pie-alt"></i>
-						
-							<div class="descriptionImage">
-							
-								Checking your budget <br/> with charts
-							
-							</div>
+					<div class="descriptionImage">
+					
+						Checking your budget <br/> with charts
 					
 					</div>
 					
-					<div class="oneOption2">
+					<i class="icon-chart-pie-alt"></i>
+				
+				</div>
+				
+				<div class="oneOption">
+				
+
 					
-						<i class="icon-basket"></i>
-						
-							<div class="descriptionImage">
-							
-									Adding and removing <br/> incomes and expenses
-							
-							</div>
-						
+					<div class="descriptionImage">
+					
+							Adding and removing <br/> incomes and expenses
 					
 					</div>
 					
-					<div style="clear:both"></div>
-			
-				</div>
-				
-				<div class="mainOption">
-				
-					<i class="icon-money"></i>
+					<i class="icon-basket"></i>
+					
 				
 				</div>
 				
+				<div class="oneOption">
 				
-				<div class="oneOption3">
-				
-					<i class="icon-balance-scale"></i>
+
 					
 						<div class="descriptionImage">
 						
 								Keeping your balance <br/> of losses and savings
 						
 						</div>
-					
+						<i class="icon-balance-scale"></i>
 					
 					<div style="clear:both"></div>
 				
 				</div>
 				
 			</section>
+			
+			
+			<nav>
+			
+				<form>
+					<div class="inputIcon">
+						<i class="icon-mail-alt"></i>
+					</div>
+					<input type="text" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'" style="float: left" >
+					
+					<div style="clear:both"></div>
+					
+					<div class="inputIcon">
+					
+						<i class="icon-lock"></i>
+					
+					</div>
+					
+					<input type="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="width: 284px; float: left;" >
+					
+					<div class="inputIcon">
+					
+						<i class="icon-eye"></i>
+					
+					</div>
+					
+					<button class="SignIn" type="submit">
+						<i class="icon-login"></i>
+						Sign In
+					</button>
+					<div style="clear:both"></div>
+					<div class="fPassword">
+						<a href="linkForgotPassword" class="forgotPassword">Forgot password?</a>
+					</div>
+					<div class="formDescription">
+						Have no account yet? </br> Register here:
+					</div>
+					<button class="SignUp" type="submit">
+						<i class="icon-user-add"></i>
+						Sign Up
+					</button>
+					
+					
+					
+				</form>
+
+
+			</nav>
+			
+			<div style="clear: both;"></div>
 		</main>
+	</div>
 		
 		<footer>
 			
 			Wszelkie prawa zastrzeżone 2021 &copy; myhomebudget.com Thank you for your visit!
 			
-		
 		</footer>
+		
 </body>
 </html>
