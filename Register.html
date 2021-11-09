@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/fontello.css" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Lato|Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
-	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="stylesheet" href="registerStyle.css" type="text/css" />
 
 	
 </head>
@@ -39,56 +39,17 @@
 	<div class="container">
 		<main>
 			
-			<section class="descriptionApp">
-				
-				<div class="oneOption">
-					
-					<div class="descriptionImage">
-					
-						Checking your budget <br/> with charts
-					
-					</div>
-					
-					<i class="icon-chart-pie-alt"></i>
-				
-				</div>
-				
-				<div class="oneOption">
-				
-
-					
-					<div class="descriptionImage">
-					
-							Adding and removing <br/> incomes and expenses
-					
-					</div>
-					
-					<i class="icon-basket"></i>
-					
-				
-				</div>
-				
-				<div class="oneOption">
-				
-
-					
-						<div class="descriptionImage">
-						
-								Keeping your balance <br/> of losses and savings
-						
-						</div>
-						<i class="icon-balance-scale"></i>
-					
-					<div style="clear:both"></div>
-				
-				</div>
-				
-			</section>
-			
 			
 			<nav>
 			
 				<form>
+				
+					<div class="inputIcon">
+						<i class="icon-user"></i>
+					</div>
+					
+					<input type="name" placeholder="name" onfocus="this.placeholder=''" onblur="this.placeholder='name'" style="float: left" >
+					
 					<div class="inputIcon">
 						<i class="icon-mail-alt"></i>
 					</div>
@@ -110,21 +71,23 @@
 					
 					</div>
 					
-					<button class="SignIn" type="submit">
-						<i class="icon-login"></i>
-						Sign In
-					</button>
-					<div style="clear:both"></div>
-					<div class="fPassword">
-						<a href="linkForgotPassword" class="forgotPassword">Forgot password?</a>
+					<div class="inputIcon">
+					
+						<i class="icon-lock"></i>
+					
 					</div>
-					<div class="formDescription">
-						Have no account yet? </br> Register here:
-					</div>
+					
+					<input type="cPassword" placeholder="confirm password" onfocus="this.placeholder=''" onblur="this.placeholder='confirm password'" style="float: left;" >
+					
 					<button class="SignUp" type="submit">
 						<i class="icon-user-add"></i>
 						Sign Up
 					</button>
+					<div style="clear:both"></div>
+					<div class="formDescription">
+						Already have an account?
+						<a href="signIn" class="SignIn">Sign In</a>
+					</div>
 					
 					
 					
