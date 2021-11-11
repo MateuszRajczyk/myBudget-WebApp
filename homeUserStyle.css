@@ -169,3 +169,151 @@ main
 
 }
 
+
+
+
+
+
+input[type=text],
+input[type=password],
+input[type=name],
+input[type=cPassword]
+{
+	width: 327px;
+	background-color: #efefef;
+	color: #666;
+	border: 2px solid #ddd;
+	border-radius: 3px;
+	font-size: 16px;
+	padding: 10px;
+	box-sizing: border-box;
+	outline: none;
+	margin-top: 10px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus
+{
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	border: 1px solid #4f5357;
+	background-color: #e9f3e9;
+	color: #428c42;
+}
+
+button[type=submit]
+{
+	width: 120px;
+	padding: 10px 5px;;
+	background-color: #d1640a;
+	font-size:17px;
+	color: black;
+	margin-top: 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	letter-spacing: 2px;
+	outline: none;
+}
+
+input[type=submit]:focus
+{
+	-webkit-box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+}
+
+button[type=submit]:hover
+{
+	opacity: 0.91;
+}
+
+input::-webkit-input-placeholder
+{
+    color: #999;
+}
+input:focus::-webkit-input-placeholder
+{
+    color: #428C42;
+}
+/* Firefox < 19 */
+input:-moz-placeholder
+{
+    color: #999;
+}
+input:focus:-moz-placeholder
+{
+    color: #428C42;
+}
+/* Firefox > 19 */
+input::-moz-placeholder
+{
+    color: #999;
+}
+input:focus::-moz-placeholder
+{
+    color: #428C42;
+}
+/* Internet Explorer 10 */
+input:-ms-input-placeholder
+{
+    color: #999;
+}
+input:focus:-ms-input-placeholder
+{
+    color: #428C42;
+}
+
+form
+{
+	float: left;
+	background-color: white;
+	width: 370px;
+	padding: 30px;
+	margin-left: 385px;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	-moz-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid #000000;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.inputIcon
+{
+	font-size: 27px;;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+	float: left;
+	margin-top: 10px;
+	padding: 1.5px 1.5px;
+	background-color: rgba(67, 240, 119, 0.6);
+
+}
+
+.icon-eye:hover
+{
+	box-shadow: 2px 2px 8px 1px rgba(8, 84, 31,0.8);
+	cursor: pointer;
+}
+
+.formDescription
+{
+	margin-top: 20px;
+}
+
+a.SignIn
+{
+	text-decoration: none;
+	color: #170999;
+}
+
+a.SignIn:hover
+{
+	text-decoration: underline;
+	color: rgba(10, 173, 29, 0.9);
+}
+
