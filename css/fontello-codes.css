@@ -12,6 +12,8 @@
 .icon-logout:before { content: '\e80a'; } /* '' */
 .icon-cog:before { content: '\e80b'; } /* '' */
 .icon-home:before { content: '\e80c'; } /* '' */
+.icon-floppy:before { content: '\e80d'; } /* '' */
 .icon-login:before { content: '\f02c'; } /* '' */
+.icon-cancel-circled:before { content: '\f06e'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */
 .icon-balance-scale:before { content: '\f24e'; } /* '' */
