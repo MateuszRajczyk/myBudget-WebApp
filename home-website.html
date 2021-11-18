@@ -13,7 +13,8 @@
 	<link rel="stylesheet" href="css/fontello.css" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Lato|Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
-	<link rel="stylesheet" href="homeStyle.css" type="text/css" />
+	<link rel="stylesheet" href="main.css" type="text/css" />
+	<script src="main.js"></script>
 
 	
 </head>
@@ -37,7 +38,7 @@
 	</header>
 
 	<div class="container">
-		<main>
+		<main class="homeWeb">
 			
 			<section class="descriptionApp">
 				
@@ -49,7 +50,7 @@
 					
 					</div>
 					
-					<i class="icon-chart-pie-alt"></i>
+					<i class="icon-chart-pie-alt" id="homeW"></i>
 				
 				</div>
 				
@@ -88,7 +89,7 @@
 			
 			<nav>
 			
-				<form>
+				<form class="home">
 					<div class="inputIcon">
 						<i class="icon-mail-alt"></i>
 					</div>
@@ -102,13 +103,13 @@
 					
 					</div>
 					
-					<input type="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="width: 284px; float: left;" >
+					<input type="password" id="myInput" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="width: 284px; float: left;" >
 					
-					<div class="inputIcon">
+					<button type="button" class="inputIcon" id="toggler" onclick="showPassword()">
 					
-						<i class="icon-eye"></i>
+						<i class="icon-eye-1"></i>
 					
-					</div>
+					</button>
 					
 					<button class="SignIn" type="submit">
 						<i class="icon-login"></i>
@@ -142,6 +143,8 @@
 			All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
 			
 		</footer>
+		
+	<script src="showBalance.js"></script>
 		
 </body>
 </html>

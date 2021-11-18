@@ -14,6 +14,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato|Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
+	
+	
 
 	
 </head>
@@ -68,16 +70,68 @@
 	</nav>
 
 
-		<main class="homeUser">
-			<img src="img/backg.jpg" style="border-radius: 10px; opacity: 0.8;"/>
-		</main>
-
+	<main class="showBalance">
+	
+		<div id="chosenTimePeriod" style="float:left" ></div>
 		
-		<footer style="margin-top: 0px;">
+		<ol class="timeChooseButton" style="float:left" >
+			<li id="chooseTime1"><a href="#"><i class="icon-calendar"></i>Choose date</a>
+				<ul id="chooseTime2">
+					<li class="chooseTime3"><a href="#"id="currentMonth" onclick="datePeriod(this)">Current Month</a></li>
+					<li class="chooseTime3"><a href="#" id="lastMonth" onclick="datePeriod(this)">Last Month</a></li>
+					<li class="chooseTime3"><a href="#" id="currentYear" onclick="datePeriod(this)">Current Year</a></li>
+					<li class="chooseTime3"><a href="#" id="selectedPeriod" onclick="datePeriod(this)">Selected period</a></li>
+				</ul>
+			</li>
+		</ol>
+		
+	</main>
+	
+	<section class="mainShowBalance">
+	
+		<div class="incomesBox" style="display: inline-block">
+			<div class="headerInEx">Incomes</div>
 			
-			All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
+			<div class="incomes/expenses">
 			
-		</footer>
+			</div>
+			
+			<div class="sumInEx">
+				Total: 0 PLN
+			</div>
+		</div>
+		
+		<div class="expensesBox" style="display: inline-block">
+			<div class="headerInEx">Expenses</div>
+			
+			<div class="incomes/expenses">
+				
+			</div>
+			
+			<div class="sumInEx">
+				Total: 0 PLN
+			</div>
+		</div>
+		
+		
+
+	</section>
+	
+	<section class="balanceM">
+		<div class="financeBalance">
+			Balance: 0 PLN
+		</div>
+	</section>
+	
+	<footer style="margin-top: 140px;">
+		
+		All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
+		
+	</footer>
+	
+	
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 		
 </body>
 </html>
