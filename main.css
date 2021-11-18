@@ -1,0 +1,650 @@
+body
+{
+	background-image: url("img/ripples.png");
+	font-family: 'Nunito', sans-serif;
+	color: #000000;;
+	font-size: 17px;
+	margin: 0;
+}
+
+.container
+{
+	margin: 0px;
+	background-color: rgba(102,106,117, 0.2);
+}
+
+main[class="homeWeb"]
+{
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+main[class="homeUser"]
+{
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	margin-top: 10px;
+	background-color: rgba(102,106,117, 0.2);
+
+}
+
+main[class="showBalance"]
+{
+	width: 100%;
+	height: 60px;
+	margin: 0;
+	text-align: center;
+	margin-top: 20px;
+	background-color: rgba(102,106,117, 0.2);
+}
+
+
+h1.logo
+{
+	font-size: 44px;
+	font-weight: 100;
+	text-align: left;
+	font-family: 'Josefin Sans', sans-serif;
+	color: #404040;
+	height: 45px;
+	margin-top: 20px;
+	width: 45%;
+	margin-bottom: 70px;
+	
+}
+
+.logo-icon
+{
+	width: 80px;
+	height: 80px;
+	float: left;
+	margin-top: 20px;
+	margin-left: 100px;
+}
+
+.adv
+{
+	margin-top: 35px;
+	margin-left: 150px;
+	width: 300px;
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	color: #0a0959;
+}
+
+.subtitle
+{
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	color: #0a0959;
+}
+
+.oneOption
+{
+	box-shadow: 2px 2px 3px 1px #a6a6a6;
+	border-radius: 7px;
+	padding: 20px;
+	margin-bottom: 30px;
+	background-color: #4b93ab;
+}
+
+.descriptionImage
+{
+	float: left;
+	text-align: center;
+	font-size: 20px;
+	margin-right: 30px;
+	letter-spacing: 2px;
+	color: #000000;
+	margin-left: 20px;
+}
+
+.descriptionApp
+{
+	width: 430px;
+	float: left;
+	margin-top: 30px;
+}
+
+footer
+{
+	margin-top: 30px;
+	text-align: center;
+}
+
+a.mButton
+{
+	text-decoration: none;
+	color: #404040;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+input[type=number]
+{
+	width: 327px;
+	background-color: #efefef;
+	color: #666;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	font-size: 17px;
+	padding: 6.5px;
+	box-sizing: border-box;
+	outline: none;
+	margin-top: 30px;
+}
+
+.payment
+{
+	width: 327px;
+	background-color: #efefef;
+	color: #666;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	font-size: 16px;
+	padding: 7px;
+	box-sizing: border-box;
+	outline: none;
+	margin-top: 30px;
+}
+
+input[type=date]
+{
+	width: 349px;
+	background-color: #efefef;
+	color: #666;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	font-size: 17px;
+	padding: 5px;
+	box-sizing: border-box;
+	outline: none;
+	margin-top: 30px;
+}
+
+input[type=text],
+input[type=password],
+input[type=name],
+input[type=cPassword]
+{
+	width: 327px;
+	background-color: #efefef;
+	color: #666;
+	border: 2px solid #ddd;
+	border-radius: 3px;
+	font-size: 16px;
+	padding: 10px;
+	box-sizing: border-box;
+	outline: none;
+	margin-top: 10px;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=name]:focus,
+input[type=cPassword]:focus
+{
+	-webkit-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 10px 2px rgba(204,204,204,0.9);
+	border: 1px solid #4f5357;
+	background-color: #e9f3e9;
+	color: #2d3e54;
+}
+
+button[type=submit]
+{
+	width: 120px;
+	padding: 10px 5px;;
+	background-color: #d1640a;
+	font-size:17px;
+	color: black;
+	margin-top: 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	letter-spacing: 2px;
+	outline: none;
+}
+
+input[type=submit]:focus
+{
+	-webkit-box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+	-moz-box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+	box-shadow: 0px 0px 15px 5px rgba(204,204,204,0.9);
+}
+
+button[type=submit]:hover
+{
+	opacity: 0.91;
+}
+
+input::-webkit-input-placeholder
+{
+    color: #999;
+}
+input:focus::-webkit-input-placeholder
+{
+    color: #2d3e54;
+}
+/* Firefox < 19 */
+input:-moz-placeholder
+{
+    color: #999;
+}
+input:focus:-moz-placeholder
+{
+    color: #2d3e54;
+}
+/* Firefox > 19 */
+input::-moz-placeholder
+{
+    color: #999;
+}
+input:focus::-moz-placeholder
+{
+    color: #2d3e54;
+}
+/* Internet Explorer 10 */
+input:-ms-input-placeholder
+{
+    color: #999;
+}
+input:focus:-ms-input-placeholder
+{
+    color: #2d3e54;
+}
+
+form[class="home"]
+{
+	float: left;
+	background-color: white;
+	width: 370px;
+	padding: 30px;
+	margin-top: 16px;
+	margin-left: 200px;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	-moz-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid #000000;
+}
+
+form[class="register"]
+{
+	float: left;
+	background-color: white;
+	width: 370px;
+	padding: 30px;
+	margin-left: 385px;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	-moz-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid #000000;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+form[class="addExpenseF"]
+{
+	float: left;
+	background-color: white;
+	width: 400px;
+	padding: 30px;
+	padding-top: 10px;
+	margin-top: 20px;
+	margin-left: 450px;
+	-webkit-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	-moz-box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	box-shadow: 1px 1px 5px 2px rgba(134, 132, 156,0.9);
+	text-align: center;
+	border-radius: 6px;
+	border: 1px solid #000000;
+	margin-bottom: 20px;
+}
+
+.descriptionLabel
+{
+	font-size: 15px;;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+	margin-top: 30px;
+	padding: 6.5px;
+	background-color: rgba(93, 114, 148, 0.35);
+
+}
+
+.comment
+{
+	resize: none;
+	margin-top: 30px;
+}
+
+.descriptionLabelComment
+{
+	font-size: 15px;;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+	margin-top: 30px;
+	padding: 12px 6.5px;
+	background-color: rgba(93, 114, 148, 0.35);
+}
+
+.head
+{
+	margin-top: 10px;
+	background-color: rgba(93, 114, 148, 0.7);
+	padding: 7px 0px;
+	border-radius: 5px;
+}
+
+header
+{
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center
+}
+
+nav[class="homeUserNav"]
+{ 
+	width: 100%;
+	padding: 10px 0px;
+	background-color: rgba(75, 147, 171, 0.7);
+	text-align: center;
+}
+
+ol
+{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 20px;
+	height: 35px;
+	line-height: 200%;
+	display: inline-block;
+}
+
+ol a
+{
+	color: #383733;
+	text-decoration: none;
+	display: block;
+	
+}
+
+ol > li
+{
+	float: left;
+	width: 220px;
+	height: 40px;
+}
+
+ol > li:hover
+{
+	border-radius: 5px;
+	box-shadow: 0px 0px 11px 2px #ffffff;
+	border: none;
+}
+
+ol > li > ul
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	height: 40px;
+	display: none;
+	font-size: 17px;
+}
+
+ol > li >ul > li > a
+{
+	color: #000000;
+}
+
+ol > li:hover > ul
+{
+	display: block;
+}
+
+ol > li > ul > li
+{
+	background-color: rgba(43, 104, 173, 1); 
+	position: relative;
+	z-index: 100;
+}
+
+ol > li > ul > li:hover
+{
+	border-radius: 6px;
+	background-color: #171ea6;
+	box-shadow: 0px 0px 5px 3px #636bff;
+}
+
+.fPassword
+{ 
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+a.forgotPassword
+{
+	text-decoration: none;
+	color: #170999;
+}
+
+a.forgotPassword:hover
+{
+	text-decoration: underline;
+	color: #170999;
+}
+
+.inputIcon
+{
+	font-size: 27px;;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+	float: left;
+	margin-top: 10px;
+	padding: 1.5px 1.5px;
+	background-color: rgba(93, 114, 148, 0.35);
+
+}
+
+.formDescription
+{
+	margin-top: 20px;
+}
+
+a.SignIn
+{
+	text-decoration: none;
+	color: #170999;
+}
+
+a.SignIn:hover
+{
+	text-decoration: underline;
+	color: rgba(10, 173, 29, 0.9);
+}
+
+.icon-chart-pie-alt[id="homeW"]:before
+{
+	font-size: 55px;
+	color: #ffffff;
+}
+
+button.inputIcon
+{
+	font-size: 27px;
+	height: 42px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+	float: left;
+	margin-top: 10px;
+	padding: 1.5px 1.5px;
+	background-color: rgba(93, 114, 148, 0.35);
+}
+
+button.inputIcon:hover
+{
+	box-shadow: 0px 0px 4px 3px rgba(74, 86, 107,0.8);
+	cursor: pointer;
+}
+
+button[class="addExpenseB"]
+{
+	margin-left: 50px;
+	width: 120px;
+	padding: 10px 5px;;
+	background-color: #d1640a;
+	font-size:17px;
+	color: black;
+	margin-top: 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	letter-spacing: 2px;
+	outline: none;
+}
+
+.icon-floppy
+{
+	margin-right: 10px;
+}
+
+.icon-cancel-circled
+{
+	margin-right: 10px;
+}
+
+.Incomes
+{
+	width: 400px;
+	background-color: #515a69;
+	text-align: center;
+	display: inline-block;
+}
+
+.Expenses
+{
+	width: 400px;
+	background-color: #515a69;
+	text-align: center;
+	display: inline-block;
+}
+
+.mainView
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 805px;
+	background-color: #1e4078;
+}
+
+ol[class="timeChooseButton"] > li[id="chooseTime1"]
+{
+	background-color: rgba(75, 147, 171, 0.7);
+	text-align: center;
+	margin-top: 6.5px;
+	padding: 3px;
+	width: 160px;
+	border-radius: 7px;
+	list-style-type: none;
+	margin-left: 320px;
+	
+}
+
+ol[class="timeChooseButton"]  a
+{
+	text-decoration: none;
+	color: #383733;
+	display: block;
+}
+
+ol[class="timeChooseButton"] > li[id="chooseTime1"] > ul[id="chooseTime2"] > li[class="chooseTime3"] > a
+{
+	color: #000000;
+}
+
+#chosenTimePeriod
+{
+	width: 300px;
+	margin-top: 15px;
+	font-size: 23px;
+	margin-left: 520px;
+}
+
+section[class="mainShowBalance"]
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 1205px;
+	margin-top: 20px;
+}
+
+.icon-calendar
+{
+	margin-right: 5px;
+}
+
+.incomesBox
+{
+	width:500px;
+	text-align: center;
+}
+
+.expensesBox
+{
+	width:500px;
+	text-align: center;
+	margin-left: 200px;
+}
+
+.headerInEx
+{
+	font-weight: 800;
+	font-size: 22px;
+	background-color: rgba(128, 29, 143, 0.6);
+	padding: 8px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	
+}
+
+.sumInEx
+{
+	background-color: rgba(102,106,117, 0.5);
+	padding: 10px;
+	font-weight: 700;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.financeBalance
+{
+	background-color: #acd4a5;
+	text-align: center;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 9px;
+	font-weight: 700;
+}
+
+section[class="balanceM"]
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+

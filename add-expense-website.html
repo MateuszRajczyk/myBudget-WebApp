@@ -13,14 +13,14 @@
 	<link rel="stylesheet" href="css/fontello.css" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Lato|Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
-	<link rel="stylesheet" href="addExpenseStyle.css" type="text/css" />
+	<link rel="stylesheet" href="main.css" type="text/css" />
 
 	
 </head>
 
 <body>
 	<header>
-		<h1 class="logo" style="float:left;">
+		<h1 class="logo" style="float:left;  margin-bottom: 50px;">
 			<a href="mainButton" class="mButton">My Home Budget</a>
 			<div class="subtitle">Application to menagement your home finance</div>
 		</h1>
@@ -36,7 +36,7 @@
 		
 	</header>
 	
-	<nav>
+	<nav class="homeUserNav">
 		<ol>
 			<li><a href="#"><i class="icon-home"></i>Home</a></li>
 			
@@ -68,8 +68,8 @@
 	</nav>
 
 
-		<main>
-			<form action="order.php" method="post" enctype="multipart/form-data">
+		<main class="homeUser">
+			<form action="order.php" method="post" enctype="multipart/form-data" class="addExpenseF">
 			
 				<div class="head">
 			
@@ -145,11 +145,11 @@
 				<div style="clear:both"></div>
 				
 				<div class="endButton" style="float: left">
-					<button><i class="icon-floppy"></i>Save</button>
+					<button class="addExpenseB"><i class="icon-floppy"></i>Save</button>
 				</div>
 				
 				<div class="endButton" style="float: left">
-					<button><i class="icon-cancel-circled"></i>Cancel</button>
+					<button class="addExpenseB"><i class="icon-cancel-circled"></i>Cancel</button>
 				</div>
 				
 				<div style="clear:both"></div>
@@ -162,7 +162,7 @@
 		</main>
 
 		
-		<footer>
+		<footer style="margin-top: 0px;">
 			
 			All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
 			
