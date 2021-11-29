@@ -381,3 +381,43 @@ ul > li > div > a:hover
 {
 	box-shadow: 0px 0px 9px 2px #1f4d82;
 }
+
+.modal-header
+{
+	border: none;
+	background-color: #95a7b8;
+}
+
+.closeButton
+{
+	border: none;
+	background-color: #95a7b8;
+	color: #5f656b;
+	font-size: 20px;
+}
+
+.closeButton:hover
+{
+	color: #000000;
+}
+
+.footerButtons
+{
+	background-color: #c47e0e;
+}
+
+.footerButtons
+{
+	background-color: #d1640a;
+	font-size:17px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	letter-spacing: 2px;
+	outline: none;
+}
+
+.footerButtons:hover
+{
+	opacity: 0.91;
+}
