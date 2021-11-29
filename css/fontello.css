@@ -56,7 +56,7 @@
 
 .icon-user-add:before { content: '\e800'; } /* '' */
 .icon-money:before { content: '\e801'; } /* '' */
-.icon-basket:before { content: '\e802'; font-size: 55px; color: #ffffff;} /* '' */
+.icon-basket:before { content: '\e802'; } /* '' */
 .icon-chart-pie-alt:before { content: '\e803'; } /* '' */
 .icon-lock:before { content: '\e804'; } /* '' */
 .icon-calendar:before { content: '\e805'; } /* '' */
@@ -74,4 +74,4 @@
 .icon-login:before { content: '\f02c'; } /* '' */
 .icon-cancel-circled:before { content: '\f06e'; } /* '' */
 .icon-mail-alt:before { content: '\f0e0'; } /* '' */
-.icon-balance-scale:before { content: '\f24e';font-size: 55px; color: #ffffff; } /* '' */
+.icon-balance-scale:before { content: '\f24e'; } /* '' */
