@@ -10,6 +10,7 @@
 	<meta name="keywords" content="expense, incomes, finance menager, money menager, budget planner" />
 	<meta name="author" content="Mateusz Rajczyk">
 	
+	<link rel="stylesheet" href="BootstrapCss/bootstrap.min.css" type="text/css" />
 	<link rel="stylesheet" href="css/fontello.css" type="text/css" />
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
@@ -20,97 +21,94 @@
 </head>
 
 <body>
-	<header>
-		<h1 class="logo" style= "float:left">
-			<a href="mainButton" class="mButton">My Home Budget</a>
-			<br/>
-			<span class="subtitle" >Application to menagement your home finance</span>
-		</h1>
-		
-		<img src="img/money-bag-no-back.png" alt="money bag with dollar icon" class="logo-icon" style="float: left"/>
-			
-		<div class="adv" style="float:left">
-		
-			Start to control balance of your finances!
-		
-		</div>
-		
-		<div style="clear:both;"></div>
-	</header>
-
 	<div class="container">
-		<main class="homeWeb">
+			<header>
+				<div class="row justify-content-sm-evenly justify-content-md-between mb-4">
+					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
+						<a href="mainButton" class="mButton">My Home Budget</a>
+						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
+					</h1>
+
+					<img src="img/money-bag-no-back.png" alt="money bag with dollar icon" class="d-md-block mt-4 logo-icon" style="width: 100px; height: 80px;" />
+						
+					<div class="col-sm-3 mt-4 d-lg-block adv">
+					
+						Start to control balance of your finances!
+					
+					</div>
+				</div>
+			</header>	
+	</div>
+
+	<div class="bg-description">
+		<section class="container">
+			<div class="row justify-content-center">
 			
-			
-			<nav>
-			
-				<form class="register">
-				
-					<div class="inputIcon">
-						<i class="icon-user"></i>
+				<form class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-4 pt-4 pb-4 my-4 bg-white formStart">
+					<div class="input-group-text">
+						<div class="inputIcon">
+							<i class="icon-user"></i>
+						</div>
+						
+						<input type="text" class="form-control" placeholder="name" onfocus="this.placeholder=''" onblur="this.placeholder='name'" >
 					</div>
 					
-					<input type="text" placeholder="name" onfocus="this.placeholder=''" onblur="this.placeholder='name'" style="float: left" >
-					
-					<div style="clear:both"></div>
-					
-					<div class="inputIcon">
-						<i class="icon-mail-alt"></i>
-					</div>
-					<input type="text" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'" style="float: left" >
-					
-					<div style="clear:both"></div>
-					
-					<div class="inputIcon">
-					
-						<i class="icon-lock"></i>
-					
+					<div class="input-group-text">
+						<div class="inputIcon">
+							<i class="icon-mail-alt"></i>
+						</div>
+						
+						<input type="text" class="form-control" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'" >
 					</div>
 					
-					<input type="password" id="myInput" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="width: 284px; float: left;" >
-					
-					<button type="button" class="inputIcon" id="toggler" onclick="showPassword()">
-					
-						<i class="icon-eye-1"></i>
-					
-					</button>
-					
-					<div class="inputIcon">
-					
-						<i class="icon-lock"></i>
+					<div class="input-group-text">
+						<div class="inputIcon">
+						
+							<i class="icon-lock"></i>
+						
+						</div>
+						
+						<input type="password" id="myInput" class="form-control" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" >
+						
+						<button type="button" class="inputIcon" id="toggler" onclick="showPassword()">
+						
+							<i class="icon-eye-1"></i>
+						
+						</button>
 					
 					</div>
 					
-					<input type="password" placeholder="confirm password" onfocus="this.placeholder=''" onblur="this.placeholder='confirm password'" style="float: left;" >
+					<div class="input-group-text">
+						<div class="inputIcon">
+						
+							<i class="icon-lock"></i>
+						
+						</div>
+						
+						<input type="password" class="form-control" placeholder="confirm password" onfocus="this.placeholder=''" onblur="this.placeholder='confirm password'">
+					</div>
 					
-					<div style="clear:both"></div>
-					
-					<button class="SignUp" type="submit">
+					<button class="px-3 py-2 mt-4 mb-3" type="submit">
 						<i class="icon-user-add"></i>
 						Sign Up
 					</button>
-					<div style="clear:both"></div>
-					<div class="formDescription">
-						Already have an account?
-						<a href="signIn" class="SignIn">Sign In</a>
-					</div>
 					
-					
+					<div>Already have an account?<a href="signIn" class="ms-1 SignIn">Sign In</a></div>
 					
 				</form>
-
-
-			</nav>
-			
-			<div style="clear: both;"></div>
-		</main>
+			</div>
+		</section>
 	</div>
+
+	
+	<footer class="mt-4">
+			
+		All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
+			
+	</footer>
 		
-		<footer>
-			
-			All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
-			
-		</footer>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+	<script src="BootstrapJs/bootstrap.min.js"></script>
 		
 </body>
 </html>
