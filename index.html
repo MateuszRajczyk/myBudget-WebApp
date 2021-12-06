@@ -83,12 +83,12 @@
 				</div>
 				
 				
-				<form class="col-11 col-sm-9 col-md-5 col-lg-5 col-xl-5 bg-white p-4 mt-2 mb-2 formStart">
+				<form class="col-11 col-sm-9 col-md-5 col-lg-5 col-xl-5 bg-white p-4 mt-2 mb-2 formStart" action="home-user-website.php" method="post">
 					<div class="input-group-text">
 						<div class="inputIcon">
 							<i class="icon-mail-alt"></i>
 						</div>
-						<input type="text" class="form-control" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'">
+						<input type="text" class="form-control" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'" style="height: 40px">
 					</div>
 					
 					<div class="input-group-text">
@@ -98,7 +98,7 @@
 					
 						</div>
 					
-						<input type="password" id="myInput" class="form-control" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" >
+						<input type="password" id="myInput" class="form-control" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="height: 40px">
 					
 						<button type="button" class="inputIcon" id="toggler" onclick="showPassword()">
 					
@@ -111,7 +111,7 @@
 						<input type="checkbox" value="rememberMe" id="rememberMe"><label for="rememberMe" class="ms-2">Remember me</label>
 					</div>
 					
-					<button class="px-3 py-2 mt-2" type="submit" onclick="rememberMe()">
+					<button class="px-3 py-2 mt-2 signButton" type="submit" onclick="rememberMe()">
 						<i class="icon-login"></i>
 						Sign In
 					</button>
@@ -124,10 +124,10 @@
 					<div>Have no account yet? <br/> Register here:</div>
 					
 					
-					<button class="px-3 py-2 mt-3" type="submit">
+					<a class="btn btn-lg px-3 py-2 mt-3 signButton">
 						<i class="icon-user-add"></i>
 						Sign Up
-					</button>
+					</a>
 								
 				</div>
 				

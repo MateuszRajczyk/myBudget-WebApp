@@ -152,7 +152,7 @@ button.inputIcon:hover
 	cursor: pointer;
 }
 
-button[type=submit]
+.signButton
 {
 	background-color: #d1640a;
 	font-size:17px;
@@ -163,7 +163,12 @@ button[type=submit]
 	outline: none;
 }
 
-button[type=submit]:hover
+a.signButton
+{
+	color: #000000;
+}
+
+.signButton:hover
 {
 	opacity: 0.91;
 }
@@ -243,6 +248,18 @@ li
 ul > li
 {
 	font-size: 20px;
+}
+
+ul > li.disabled
+{
+	pointer-events: none;
+	background-color: rgba(48, 102, 120, 1);
+	border-radius: 5px;
+}
+
+li.disabled > a.nav-link
+{
+	color: #ffffff !important;
 }
 
 ul > li:hover
@@ -374,7 +391,7 @@ ul > li > div > a:hover
 
 .choiceTimeButton:hover > button
 {
-	box-shadow: 0px 0px 9px 2px #1f5c80;
+	box-shadow: 0px 0px 3px 1px #0d3f45;
 }
 
 .choiceTimeButton > div > a:hover

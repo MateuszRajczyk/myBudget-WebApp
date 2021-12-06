@@ -17,6 +17,7 @@
 	<link rel="stylesheet" href="main.css" type="text/css" />
 
 	<script src="main.js"></script>
+	
 </head>
 
 <body>
@@ -24,7 +25,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="mainButton" class="mButton">My Home Budget</a>
+						<a href="index.php" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -39,7 +40,6 @@
 			</header>	
 	</div>
 	
-
 	<nav class="navbar navbar-light bg-navigation navbar-expand-lg mb-2">
 	
 		<button class="navbar-toggler ms-2 mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Navigation toggler">
@@ -51,20 +51,20 @@
 				<div class="row ms-1 ">
 					<ul class="navbar-nav">
 					
+						<li class="nav-item col-lg-2">
+							<a class="nav-link" href="home-user-website.php"><i class="icon-home"></i>Home</a>
+						</li>
+						
+						<li class="nav-item col-lg-2">
+							<a class="nav-link" href="add-income-website.php"><i class="icon-money"></i>Add Income</a>
+						</li>
+						
 						<li class="nav-item disabled col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-home"></i>Home</a>
-						</li>
-						
-						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-money"></i>Add Income</a>
-						</li>
-						
-						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-dollar"></i>Add Expense</a>
+							<a class="nav-link" href="add-expense-website.php"><i class="icon-dollar"></i>Add Expense</a>
 						</li>
 						
 						<li class="nav-item dropdown col-lg-2">
-							<a class="nav-link" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-chart-pie-alt" ></i>Show Balance</a>
+							<a class="nav-link" href="#" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-chart-pie-alt" ></i>Show Balance</a>
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
@@ -78,7 +78,7 @@
 						</li>
 						
 						<li class="nav-item dropdown col-lg-2">
-							<a class="nav-link" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-cog"></i>Settings</a>
+							<a class="nav-link" href="#" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-cog"></i>Settings</a>
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
@@ -98,7 +98,7 @@
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-logout"></i>Sign out</a>
+							<a class="nav-link" href="signOut.php"><i class="icon-logout"></i>Sign out</a>
 						</li>
 					
 					</ul>
@@ -108,22 +108,95 @@
 	
 	</nav>
 
-
-
 	<div class="bg-description">
-		<section class="container-fluid ">
-			<div class="row justify-content-center g-0" >
-				<img src="img/backg.jpg" id="backgroundImage" class="mt-2 mb-2" alt="background image, computer to menage finances"/>
+		<section class="container">
+			<div class="row justify-content-center">
+			
+				<form class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-4 pt-4 pb-4 my-4 bg-white formStart">
+				
+					<div class="bg-header-fnc py-2 mb-4">
+						
+						Adding an expense
+					
+					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel px-2">
+							Amount
+						</div>
+						
+						<input class="form-control" type="number" step="0.01" name="amount" required >
+					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel px-2">
+							Date
+						</div>
+						
+						<input class="form-control" type="date" name="date" >
+					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel px-2">
+							Payment Method
+						</div>
+					
+						<select class="form-select userChoice" name="payment" >
+					
+							<option value="cash">cash</option>		
+							<option value="debit">debit card</option>		
+							<option value="credit">credit card</option>	
+							<option value="blik">blik payment</option>	
+							<option value="other">other</option>	
+							<option value="main" disabled hidden selected>- payment method -</option>
+						</select>
+							
+					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel px-2">
+							Category
+						</div>
+						
+						<select class="form-select userChoice" name="category">
+					
+							<option value="food">food</option>		
+							<option value="house">house</option>		
+							<option value="transport">transport</option>	
+							<option value="books">books</option>	
+							<option value="other">other</option>	
+							<option value="select" disabled hidden selected>- select category -</option>
+						</select>
+						
+					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel comment px-2 pt-4">
+						
+							Comments <br>(optional)
+						
+						</div>
+						
+						<textarea name="comment" class="comment" rows="3" cols="39"></textarea>
+						
+					</div>
+					
+					
+					<button class="mt-4 me-5 addExpenseB px-4 py-2 "><i class="icon-floppy"></i>Save</button>				
+
+					<button class="addExpenseB px-4 py-2"><i class="icon-cancel-circled"></i>Cancel</button>
+					
+				</form>
 			</div>
 		</section>
 	</div>
-
 		
-	<footer class="mt-4">
+	<footer>
 		
 		All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
 		
 	</footer>
+		
 		
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 	<script src="BootstrapJs/bootstrap.min.js"></script>

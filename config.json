@@ -131,6 +131,12 @@
       "css": "down-open",
       "code": 59408,
       "src": "fontawesome"
+    },
+    {
+      "uid": "7b16b22168e762c88333f465da862098",
+      "css": "ok",
+      "code": 59409,
+      "src": "websymbols"
     }
   ]
 }

@@ -1,3 +1,15 @@
+<?php
+
+	session_start();
+	
+	if (!isset($_SESSION['loggedIn']))
+	{
+		header('Location: index.php');
+		exit();
+	}
+	
+?>
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -24,7 +36,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="mainButton" class="mButton">My Home Budget</a>
+						<a href="index.php" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -52,19 +64,19 @@
 					<ul class="navbar-nav">
 					
 						<li class="nav-item disabled col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-home"></i>Home</a>
+							<a class="nav-link" href="home-user-website.php"><i class="icon-home"></i>Home</a>
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-money"></i>Add Income</a>
+							<a class="nav-link" href="add-income-website.php"><i class="icon-money"></i>Add Income</a>
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-dollar"></i>Add Expense</a>
+							<a class="nav-link" href="add-expense-website.php"><i class="icon-dollar"></i>Add Expense</a>
 						</li>
 						
 						<li class="nav-item dropdown col-lg-2">
-							<a class="nav-link" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-chart-pie-alt" ></i>Show Balance</a>
+							<a class="nav-link" href="#" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-chart-pie-alt" ></i>Show Balance</a>
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
@@ -78,7 +90,7 @@
 						</li>
 						
 						<li class="nav-item dropdown col-lg-2">
-							<a class="nav-link" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-cog"></i>Settings</a>
+							<a class="nav-link" href="#" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-cog"></i>Settings</a>
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
@@ -98,7 +110,7 @@
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-logout"></i>Sign out</a>
+							<a class="nav-link" href="signOut.php"><i class="icon-logout"></i>Sign out</a>
 						</li>
 					
 					</ul>

@@ -15,8 +15,7 @@
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
-	
-	
+
 	<script src="main.js"></script>
 	
 </head>
@@ -69,10 +68,10 @@
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
-								<a class="dropdown-item" href="#" > Current Month </a>
+								<a class="dropdown-item" href="#"> Current Month </a>
 								<a class="dropdown-item" href="#"> Last Month </a>
 								<a class="dropdown-item" href="#"> Current Year </a>
-								<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal"> Selected Period </a>
+								<a class="dropdown-item" href="#"> Selected Period </a>
 							
 							</div>
 							
@@ -109,114 +108,79 @@
 	
 	</nav>
 
-
-	<div class="modal" tabindex="-1" role="dialog" id="dateModal">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h3 class="modal-title">Select time period</h3>
-					
-					<button type="button" class="close closeButton" data-bs-dismiss="modal">x</button>
-				</div>
+	<div class="bg-description">
+		<section class="container">
+			<div class="row justify-content-center">
+			
+				<form class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-4 pt-4 pb-4 my-4 bg-white formStart">
 				
-				<form class="mx-auto" method="post">
-					<div class="modal-body">
-						<h5>Select a start date and end date for look at balance in choosing time period</h5>
+					<div class="bg-header-fnc py-2 mb-4">
 						
-						<div class="row justify-content-center">
-							<div class="form-group col-5 mt-3 mb-3">
-								<span>Start date</span>
-								
-								<input class="form-control" type="date">
-							</div>
-							
-							<div class="form-group col-5 mt-3 mb-3">
-								<span>End date</span>
-								
-								<input class="form-control" type="date">
-							</div>
-						</div>
+						Adding an income
+					
 					</div>
 					
-					<div class="modal-footer mt-2 mb-2">
-						<button class="btn footerButtons" type="submit">Save</button>
+					<div class="input-group-text">
+						<div class="descriptionLabel px-2">
+							Amount
+						</div>
 						
-						<button type="button" class="btn footerButtons" data-bs-dismiss="modal">Close</button>
+						<input class="form-control" type="number" step="0.01" name="amount" required >
 					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel px-2">
+							Date
+						</div>
+						
+						<input class="form-control" type="date" name="date" >
+					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel px-2">
+							Category
+						</div>
+						
+						<select class="form-select userChoice" name="category">
+					
+							<option value="food">food</option>		
+							<option value="house">house</option>		
+							<option value="transport">transport</option>	
+							<option value="books">books</option>	
+							<option value="other">other</option>	
+							<option value="select" disabled hidden selected>- select category -</option>
+						</select>
+						
+					</div>
+					
+					<div class="input-group-text">
+						<div class="descriptionLabel comment px-2 pt-4">
+						
+							Comments <br>(optional)
+						
+						</div>
+						
+						<textarea name="comment" class="comment" rows="3" cols="39"></textarea>
+						
+					</div>
+					
+					
+					<button class="mt-4 me-5 addExpenseB px-4 py-2 "><i class="icon-floppy"></i>Save</button>				
+
+					<button class="addExpenseB px-4 py-2"><i class="icon-cancel-circled"></i>Cancel</button>
+					
 				</form>
 			</div>
-		</div>
-	
-	</div>
-
-
-	<div class="bg-description-showBalance">
-		<section class="container-fluid">
-			<div class="row ">
-				<div class="col-12 mt-2 ">
-					<h5><span id="chosenTimePeriod" ></span></h5>
-					
-					<div class="btn-group choiceTimeButton me-4 mt-1">
-						<button class="btn dropdown-toggle  " type="button" id="submenu" data-bs-toggle="dropdown" ><i class="icon-calendar"></i>Choose date</button>
-						
-						<div class="dropdown-menu dropdown-menu-end" aria-labelledby="submenu">
-							<a class="dropdown-item" href="#" id="currentMonth" onclick="datePeriod(this)">Current Month</a>
-							<a class="dropdown-item" href="#" id="lastMonth" onclick="datePeriod(this)">Last Month</a>
-							<a class="dropdown-item" href="#" id="currentYear" onclick="datePeriod(this)">Current Year</a>
-							<a class="dropdown-item" href="#" id="selectedPeriod" onclick="datePeriod(this)" data-bs-toggle="modal" data-bs-target="#dateModal">Selected period</a>
-						</div>
-					</div>
-				</div>
-			</div>	
 		</section>
-	</div>	
-
-	<div class="container-fluid container-lg">
-		<div class="row justify-content-center">
-		
-			<div class="col-md-5 col-lg-6 col-xl-5 col-10 mt-4 me-md-auto ">
-				<div class="p-1 tIncomeExpense">Incomes</div>
-				
-				<div class="incomes/expenses">
-				
-				</div>
-				
-				<div class="sumInExIn p-2">
-					Total: 0 PLN
-				</div>
-			</div>
-			
-			<div class="col-md-5 col-lg-6 col-xl-5 col-10 mt-4">
-				<div class="tIncomeExpense p-1">Expenses</div>
-				
-				<div class="incomes/expenses">
-					
-				</div>
-				
-				<div class="sumInExIn p-2">
-					Total: 0 PLN
-				</div>
-			</div>
-		</div>
-	
-	
-		<div class="row justify-content-center">
-			<div class="financeBalance col-3 mt-5 p-2">
-				Balance: 0 PLN
-			</div>
-		</div>
-
 	</div>
-	
-	<footer class="mt-5">
+		
+	<footer>
 		
 		All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
 		
 	</footer>
-	
-	
-	<script src="jquery-3.6.0.min.js"></script>
-	<script src="main.js"></script>
+		
+		
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 	<script src="BootstrapJs/bootstrap.min.js"></script>
 </body>

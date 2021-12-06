@@ -1,3 +1,29 @@
+<?php
+
+	session_start();
+	
+	if (!isset($_SESSION['registerSuccessful']))
+	{
+		header('Location: index.php');
+		exit();
+	}
+	else
+	{
+		unset($_SESSION['registerSuccessful']);
+	}
+	
+	if (isset($_SESSION['rememberUserName'])) unset($_SESSION['rememberUserName']);
+	if (isset($_SESSION['rememberEmail'])) unset($_SESSION['rememberEmail']);
+	if (isset($_SESSION['rememberPassword1'])) unset($_SESSION['rememberPassword1']);
+	if (isset($_SESSION['rememberPassword2'])) unset($_SESSION['rememberPassword2']);
+	
+	if (isset($_SESSION['errUserName'])) unset($_SESSION['errUserName']);
+	if (isset($_SESSION['errEmail'])) unset($_SESSION['errEmail']);
+	if (isset($_SESSION['errPasswordLength'])) unset($_SESSION['errPasswordLength']);
+	if (isset($_SESSION['errPasswordMatch'])) unset($_SESSION['errPasswordMatch']);
+	
+?>
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -25,7 +51,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between mb-4">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="mainButton" class="mButton">My Home Budget</a>
+						<a href="index.php" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -43,69 +69,26 @@
 	<div class="bg-description">
 		<section class="container">
 			<div class="row justify-content-center">
-			
-				<form class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-4 pt-4 pb-4 my-4 bg-white formStart">
-					<div class="input-group-text">
-						<div class="inputIcon">
-							<i class="icon-user"></i>
-						</div>
-						
-						<input type="text" class="form-control" placeholder="name" onfocus="this.placeholder=''" onblur="this.placeholder='name'" style="height: 40px" >
-					</div>
+				<div class="col-10 mt-5 mb-5">
+					<h4 class="text-success"><i class="icon-ok me-2"></i>Registered successfully</h4>
+					<p style="color: #383733;">Thank you for registration! Now you can sign in for your new account.</p>
 					
-					<div class="input-group-text">
-						<div class="inputIcon">
-							<i class="icon-mail-alt"></i>
-						</div>
-						
-						<input type="text" class="form-control" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'" style="height: 40px" >
-					</div>
-					
-					<div class="input-group-text">
-						<div class="inputIcon">
-						
-							<i class="icon-lock"></i>
-						
-						</div>
-						
-						<input type="password" id="myInput" class="form-control" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="height: 40px">
-						
-						<button type="button" class="inputIcon" id="toggler" onclick="showPassword()">
-						
-							<i class="icon-eye-1"></i>
-						
-						</button>
-					
-					</div>
-					
-					<div class="input-group-text">
-						<div class="inputIcon">
-						
-							<i class="icon-lock"></i>
-						
-						</div>
-						
-						<input type="password" class="form-control" placeholder="confirm password" onfocus="this.placeholder=''" onblur="this.placeholder='confirm password'" style="height: 40px">
-					</div>
-					
-					<button class="px-3 py-2 mt-4 mb-3" type="submit">
+					<a class="btn btn-lg px-3 py-2 mt-3 signButton" href="index.php">
 						<i class="icon-user-add"></i>
-						Sign Up
-					</button>
-					
-					<div>Already have an account?<a href="signIn" class="ms-1 SignIn">Sign In</a></div>
-					
-				</form>
+						Sign In
+					</a>
+				<div>
 			</div>
 		</section>
 	</div>
 
-	
-	<footer class="mt-4">
-			
-		All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
-			
-	</footer>
+	<div class="row justify-content-center">
+		<footer class="mt-4 position-absolute bottom-0">
+				
+			All rights reserved 2021 &copy; myhomebudget.com Thank you for your visit!
+				
+		</footer>
+	</div>
 		
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 	<script src="BootstrapJs/bootstrap.min.js"></script>
