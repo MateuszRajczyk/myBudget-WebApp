@@ -4,15 +4,38 @@
 	
 	if(isset($_POST['amount']))
 	{	
-		$amount = $_POST['amount'];
+		$validateSuccess=true;
+		
+		if($_POST['amount']=="")
+		{
+			$validateSuccess=false;
+			$_SESSION['errAmount']="The amount field is required!";
+		}
+		else
+		{
+			$amount = $_POST['amount'];
+			$_SESSION['rememberAmount'] = $amount;
+		}
 		
 		$date = $_POST['date'];
 		
-		$categoryId = $_POST['category'];
+		$_SESSION['rememberDate'] = $date;
+			
+		if(!isset($_POST['category']))
+		{
+			$validateSuccess=false;
+			$_SESSION['errCategory']="The category field is required!";
+		}
+		else
+		{
+			$categoryId = $_POST['category'];
+			$_SESSION['rememberCategory'] = $categoryId;
+		}
 		
 		$comment = $_POST['comment'];
+
+		$_SESSION['rememberComment'] = $comment;
 		
-			
 		require_once "connectSQL.php";
 		mysqli_report(MYSQLI_REPORT_STRICT);
 			
@@ -25,11 +48,22 @@
 			}
 			else
 			{	
-				if($idUser = $connect->query("SELECT id FROM users WHERE id=".$_SESSION['id']))
+				if($validateSuccess == true)
 				{
-					while($rowIdUser=mysqli_fetch_array($idUser, MYSQLI_ASSOC))
+					if($idUser = $connect->query("SELECT id FROM users WHERE id=".$_SESSION['id']))
 					{
-						$connect->query("INSERT INTO incomes VALUES (NULL, ".$rowIdUser['id'].", '$amount', '$categoryId', '$comment', '$date')");
+						while($rowIdUser=mysqli_fetch_array($idUser, MYSQLI_ASSOC))
+						{
+							$connect->query("INSERT INTO incomes VALUES (NULL, ".$rowIdUser['id'].", '$amount', '$categoryId', '$comment', '$date')");
+							unset($_SESSION['rememberAmount']);
+							unset($_SESSION['rememberCategory']);
+							unset($_SESSION['rememberComment']);
+							unset($_SESSION['rememberDate']);
+						}
+					}
+					else
+					{
+						throw new Exception($connect->error);
 					}
 				}
 				
@@ -39,7 +73,7 @@
 		}
 		catch(Exception $e)
 		{
-			echo '<span style="color:red;">Server error! Please register in another time!</span>';
+			echo '<span style="color:red;">Server error! Please add income in another time!</span>';
 		}
 	}
 	
@@ -156,7 +190,7 @@
 	</nav>
 
 
-	<div class="modal hide fade in" tabindex="-1" role="dialog" id="incomeModal" data-bs-backdrop="static">
+	<div class="modal hide fade in" tabindex="-1" role="dialog" id="incomeModalCancel" data-bs-backdrop="static">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content modal-xl">
 				<div class="modal-header">
@@ -173,6 +207,28 @@
 					<a class="btn footerButtons" href="home-user-website.php">YES</a>
 					
 					<button class="btn footerButtons" type="button" data-bs-dismiss="modal">NO</button>
+					
+				</div>
+
+			</div>
+		</div>
+	
+	</div>
+	
+		<div class="modal hide fade in" tabindex="-1" role="dialog" id="incomeModalSuccess" data-bs-backdrop="static">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content modal-xl">
+				<div class="modal-header">			
+					<button type="button" class="close closeButton" data-bs-dismiss="modal">x</button>
+				</div>
+				
+				<div class="modal-body mt-3">
+					<h5>The income which you entered has been successfully added.</h5>
+				</div>
+				
+				<div class="modal-footer mt-2 mb-2">
+					
+					<button class="btn footerButtons" type="button" data-bs-dismiss="modal">OK</button>
 					
 				</div>
 
@@ -199,15 +255,36 @@
 							Amount
 						</div>
 						
-						<input class="form-control" type="number" step="0.01" name="amount">
+						<input class="form-control" type="number" step="0.01" name="amount" value="<?php
+							if (isset($_SESSION['rememberAmount']))
+							{
+								echo $_SESSION['rememberAmount'];
+								unset($_SESSION['rememberAmount']);
+							}?>">
 					</div>
+					
+					<?php
+						if (isset($_SESSION['errAmount']))
+						{
+							echo '<div class="error" style="color:red"><span class="me-2 text-left" style="font-weight: 700; font-size: 23px;">x</span>'.$_SESSION['errAmount'].'</div>';
+							unset($_SESSION['errAmount']);
+						}
+					?>
 					
 					<div class="input-group-text">
 						<div class="descriptionLabel px-2">
 							Date
 						</div>
 						
-						<input class="form-control" type="date" name="date">
+						<input class="form-control" type="date" name="date" value="<?php
+							if (isset($_SESSION['rememberDate']))
+							{
+								echo $_SESSION['rememberDate'];
+								unset($_SESSION['rememberDate']);
+							}else
+							{
+								echo date('Y-m-d');
+							}?>">
 					</div>
 					
 					<div class="input-group-text">
@@ -215,7 +292,7 @@
 							Category
 						</div>
 						
-						<select class="form-select userChoice" name="category">
+						<select class="form-select userChoice" name="category" >
 					
 							<option value="" disabled hidden selected>- select category -</option>
 							<?php
@@ -225,13 +302,29 @@
 							{
 								while($row=mysqli_fetch_array($result, MYSQLI_ASSOC))
 								{
-									echo '<option value='.$row["id"].'>'.$row["name"].'</option>';
+									echo '<option value='.$row["id"];
+									
+									if ((isset($_SESSION['rememberCategory'])) && ($_SESSION['rememberCategory'] == $row["id"]))
+									{
+										echo ' selected = "selected"';
+										unset($_SESSION['rememberCategory']);
+									}
+									
+									echo ' >'.$row["name"].'</option>';
 								}
 							}
 							?>
 						</select>
 						
 					</div>
+					
+					<?php
+						if (isset($_SESSION['errCategory']))
+						{
+							echo '<div class="error" style="color:red"><span class="me-2 text-left" style="font-weight: 700; font-size: 23px;">x</span>'.$_SESSION['errCategory'].'</div>';
+							unset($_SESSION['errCategory']);
+						}
+					?>
 					
 					<div class="input-group-text">
 						<div class="descriptionLabel comment px-2 pt-4">
@@ -240,14 +333,19 @@
 						
 						</div>
 						
-						<textarea name="comment" class="comment" rows="3" cols="39"></textarea>
+						<textarea name="comment" class="comment" rows="3" cols="39"><?php
+							if (isset($_SESSION['rememberComment']))
+							{
+								echo $_SESSION['rememberComment'];
+								unset($_SESSION['rememberComment']);
+							}?></textarea>
 						
 					</div>
 					
 					
-					<button class="btn mt-4 me-5 addExpenseB px-4 py-2 " type="submit"><i class="icon-floppy"></i>Save</button>				
-
-					<a data-bs-toggle="modal" data-bs-target="#incomeModal"><button class="btn addExpenseB mt-4 px-4 py-2"><i class="icon-cancel-circled"></i>Cancel</button></a>
+					<button class="btn mt-4 me-5 addExpenseB px-4 py-2 " type="submit"><i class="icon-floppy"></i>Save</button>		
+					
+					<a data-bs-toggle="modal" data-bs-target="#incomeModalCancel"><button class="btn addExpenseB mt-4 px-4 py-2"><i class="icon-cancel-circled"></i>Cancel</button></a>
 					
 				</form>
 			</div>
