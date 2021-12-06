@@ -163,6 +163,12 @@
 			<div class="row justify-content-center">
 			
 				<form class="col-11 col-sm-10 col-md-8 col-lg-6 col-xl-5 px-4 pt-4 pb-4 my-4 bg-white formStart" method="post">
+					<div class="bg-header-fnc py-2 mb-4">
+						
+						Register new user
+					
+					</div>
+					
 					<div class="input-group-text">
 						<div class="inputIcon">
 							<i class="icon-user"></i>
