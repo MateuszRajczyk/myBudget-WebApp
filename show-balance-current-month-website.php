@@ -1,3 +1,11 @@
+<?php
+	
+	require_once "autoLogOut.php";
+	
+	require_once "show-balance-search-DB.php";
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -69,9 +77,9 @@
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
-								<a class="dropdown-item" href="#" > Current Month </a>
-								<a class="dropdown-item" href="#"> Last Month </a>
-								<a class="dropdown-item" href="#"> Current Year </a>
+								<a class="dropdown-item" href="show-balance-current-month-website.php" > Current Month </a>
+								<a class="dropdown-item" href="show-balance-last-month-website.php" > Last Month </a>
+								<a class="dropdown-item" href="show-balance-current-year-website.php" > Current Year </a>
 								<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal"> Selected Period </a>
 							
 							</div>
@@ -154,16 +162,29 @@
 		<section class="container-fluid">
 			<div class="row ">
 				<div class="col-12 mt-2 ">
-					<h5><span id="chosenTimePeriod" ></span></h5>
+					<h5>
+					
+						<span class="chosenTimePeriod" ><?php echo '01.'.date("m").'.'.date("Y"); ?></span>
+						
+						-
+						
+						<span class="chosenTimePeriod" ><?php
+							require_once "show-balance-Functions.php";
+							
+							echo numbersOfDaysInMonth(date("m"), date("Y")).'.'.date("m.Y");
+						?></span>
+					
+					
+					</h5>
 					
 					<div class="btn-group choiceTimeButton me-4 mt-1">
 						<button class="btn dropdown-toggle  " type="button" id="submenu" data-bs-toggle="dropdown" ><i class="icon-calendar"></i>Choose date</button>
 						
 						<div class="dropdown-menu dropdown-menu-end" aria-labelledby="submenu">
-							<a class="dropdown-item" href="#" id="currentMonth" onclick="datePeriod(this)">Current Month</a>
-							<a class="dropdown-item" href="#" id="lastMonth" onclick="datePeriod(this)">Last Month</a>
-							<a class="dropdown-item" href="#" id="currentYear" onclick="datePeriod(this)">Current Year</a>
-							<a class="dropdown-item" href="#" id="selectedPeriod" onclick="datePeriod(this)" data-bs-toggle="modal" data-bs-target="#dateModal">Selected period</a>
+							<a class="dropdown-item" href="show-balance-current-month-website.php">Current Month</a>
+							<a class="dropdown-item" href="show-balance-last-month-website.php">Last Month</a>
+							<a class="dropdown-item" href="show-balance-current-year-website.php">Current Year</a>
+							<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal">Selected period</a>
 						</div>
 					</div>
 				</div>

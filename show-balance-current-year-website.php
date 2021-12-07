@@ -1,3 +1,11 @@
+<?php
+	
+	require_once "autoLogOut.php";
+	
+	require_once "show-balance-search-DB.php";
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -26,7 +34,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="mainButton" class="mButton">My Home Budget</a>
+						<a href="index.php" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -52,26 +60,26 @@
 				<div class="row ms-1 ">
 					<ul class="navbar-nav">
 					
-						<li class="nav-item active col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-home"></i>Home</a>
+						<li class="nav-item col-lg-2">
+							<a class="nav-link" href="home-user-website.php"><i class="icon-home"></i>Home</a>
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-money"></i>Add Income</a>
+							<a class="nav-link" href="add-income-website.php"><i class="icon-money"></i>Add Income</a>
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-dollar"></i>Add Expense</a>
+							<a class="nav-link" href="add-expense-website.php"><i class="icon-dollar"></i>Add Expense</a>
 						</li>
 						
-						<li class="nav-item dropdown col-lg-2">
-							<a class="nav-link" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-chart-pie-alt" ></i>Show Balance</a>
+						<li class="nav-item disabled dropdown col-lg-2">
+							<a class="nav-link" href="#" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-chart-pie-alt" ></i>Show Balance</a>
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
-								<a class="dropdown-item" href="#" > Current Month </a>
-								<a class="dropdown-item" href="#"> Last Month </a>
-								<a class="dropdown-item" href="#"> Current Year </a>
+								<a class="dropdown-item" href="show-balance-current-month-website.php" > Current Month </a>
+								<a class="dropdown-item" href="show-balance-last-month-website.php"> Last Month </a>
+								<a class="dropdown-item" href="show-balance-current-year-website.php"> Current Year </a>
 								<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal"> Selected Period </a>
 							
 							</div>
@@ -79,7 +87,7 @@
 						</li>
 						
 						<li class="nav-item dropdown col-lg-2">
-							<a class="nav-link" href="#" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-cog"></i>Settings</a>
+							<a class="nav-link" href="#" aria-expanded="false" id="submenu" aria-haspopup="true"><i class="icon-cog"></i>Settings</a>
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
@@ -99,7 +107,7 @@
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="#"><i class="icon-logout"></i>Sign out</a>
+							<a class="nav-link" href="signOut.php"><i class="icon-logout"></i>Sign out</a>
 						</li>
 					
 					</ul>
@@ -154,16 +162,27 @@
 		<section class="container-fluid">
 			<div class="row ">
 				<div class="col-12 mt-2 ">
-					<h5><span id="chosenTimePeriod" ></span></h5>
+					<h5>
+						<span class="chosenTimePeriod" ><?php echo '01.01.'.date("Y"); ?></span>
+						
+						-
+						
+						<span class="chosenTimePeriod" ><?php
+							require_once "show-balance-Functions.php";
+							
+							echo numbersOfDaysInMonth(12, date("Y")).'.12.'.date("Y");
+						?></span>
+					
+					</h5>
 					
 					<div class="btn-group choiceTimeButton me-4 mt-1">
 						<button class="btn dropdown-toggle  " type="button" id="submenu" data-bs-toggle="dropdown" ><i class="icon-calendar"></i>Choose date</button>
 						
 						<div class="dropdown-menu dropdown-menu-end" aria-labelledby="submenu">
-							<a class="dropdown-item" href="#" id="currentMonth" onclick="datePeriod(this)">Current Month</a>
-							<a class="dropdown-item" href="#" id="lastMonth" onclick="datePeriod(this)">Last Month</a>
-							<a class="dropdown-item" href="#" id="currentYear" onclick="datePeriod(this)">Current Year</a>
-							<a class="dropdown-item" href="#" id="selectedPeriod" onclick="datePeriod(this)" data-bs-toggle="modal" data-bs-target="#dateModal">Selected period</a>
+							<a class="dropdown-item" href="show-balance-current-month-website.php" >Current Month</a>
+							<a class="dropdown-item" href="show-balance-last-month-website.php" >Last Month</a>
+							<a class="dropdown-item" href="show-balance-current-year-website.php" >Current Year</a>
+							<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal">Selected period</a>
 						</div>
 					</div>
 				</div>

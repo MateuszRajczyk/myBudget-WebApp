@@ -2,6 +2,8 @@
 
 	session_start();
 	
+	require_once "autoLogOut.php";
+	
 	if(isset($_POST['amount']))
 	{	
 		$validateSuccess=true;
@@ -162,10 +164,10 @@
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
-								<a class="dropdown-item" href="#"> Current Month </a>
-								<a class="dropdown-item" href="#"> Last Month </a>
-								<a class="dropdown-item" href="#"> Current Year </a>
-								<a class="dropdown-item" href="#"> Selected Period </a>
+								<a class="dropdown-item" href="show-balance-current-month-website.php"> Current Month </a>
+								<a class="dropdown-item" href="show-balance-last-month-website.php"> Last Month </a>
+								<a class="dropdown-item" href="show-balance-current-year-website.php"> Current Year </a>
+								<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal"> Selected Period </a>
 							
 							</div>
 							
@@ -201,6 +203,45 @@
 		</div>
 	
 	</nav>
+	
+	<div class="modal" tabindex="-1" role="dialog" id="dateModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Select time period</h3>
+					
+					<button type="button" class="close closeButton" data-bs-dismiss="modal">x</button>
+				</div>
+				
+				<form class="mx-auto" method="post">
+					<div class="modal-body">
+						<h5>Select a start date and end date for look at balance in choosing time period</h5>
+						
+						<div class="row justify-content-center">
+							<div class="form-group col-5 mt-3 mb-3">
+								<span>Start date</span>
+								
+								<input class="form-control" type="date">
+							</div>
+							
+							<div class="form-group col-5 mt-3 mb-3">
+								<span>End date</span>
+								
+								<input class="form-control" type="date">
+							</div>
+						</div>
+					</div>
+					
+					<div class="modal-footer mt-2 mb-2">
+						<button class="btn footerButtons" type="submit">Save</button>
+						
+						<button type="button" class="btn footerButtons" data-bs-dismiss="modal">Close</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+	</div>
 	
 	<div class="modal hide fade in" tabindex="-1" role="dialog" id="expenseModalCancel" data-bs-backdrop="static">
 		<div class="modal-dialog" role="document">

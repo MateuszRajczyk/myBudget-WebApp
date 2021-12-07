@@ -339,7 +339,7 @@ ul > li > div > a:hover
 	outline: none;
 }
 
-#chosenTimePeriod
+.chosenTimePeriod
 {
 	font-size: 23px;
 }
