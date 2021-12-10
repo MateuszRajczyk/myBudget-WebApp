@@ -149,6 +149,3 @@ function rememberMe()
 	localStorage.checkbox = "";
   }
 }
-
-
-

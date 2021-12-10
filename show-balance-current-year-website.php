@@ -1,9 +1,5 @@
 <?php
-	
-	require_once "autoLogOut.php";
-	
-	require_once "show-balance-search-DB.php";
-
+	session_start();
 ?>
 
 <!DOCTYPE HTML>
@@ -127,7 +123,7 @@
 					<button type="button" class="close closeButton" data-bs-dismiss="modal">x</button>
 				</div>
 				
-				<form class="mx-auto" method="post">
+				<form class="mx-auto" method="post" action="show-balance-selected-time-period-website.php">
 					<div class="modal-body">
 						<h5>Select a start date and end date for look at balance in choosing time period</h5>
 						
@@ -135,14 +131,23 @@
 							<div class="form-group col-5 mt-3 mb-3">
 								<span>Start date</span>
 								
-								<input class="form-control" type="date">
+								<input class="form-control" type="date" name="date1" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							
 							<div class="form-group col-5 mt-3 mb-3">
 								<span>End date</span>
 								
-								<input class="form-control" type="date">
+								<input class="form-control" type="date" name="date2" value="<?php echo date('Y-m-d'); ?>">
 							</div>
+							
+							<?php
+							
+							if(isset($_POST['date1']))
+							{
+								header('Location: show-balance-selected-time-period-website.php');
+							}
+							
+							?>
 						</div>
 					</div>
 					
@@ -163,14 +168,22 @@
 			<div class="row ">
 				<div class="col-12 mt-2 ">
 					<h5>
-						<span class="chosenTimePeriod" ><?php echo '01.01.'.date("Y"); ?></span>
+						<span class="chosenTimePeriod" ><?php $date1 = '01.01.'.date("Y");  echo $date1;
+						
+						$date1 = date("Y").'-01-01';
+						
+						?></span>
 						
 						-
 						
 						<span class="chosenTimePeriod" ><?php
 							require_once "show-balance-Functions.php";
 							
-							echo numbersOfDaysInMonth(12, date("Y")).'.12.'.date("Y");
+							$date2 =  numbersOfDaysInMonth(12, date("Y")).'.12.'.date("Y");
+							
+							echo $date2;
+							
+							$date2 = date("Y").'-12-'.numbersOfDaysInMonth(12, date("Y"));
 						?></span>
 					
 					</h5>
@@ -192,36 +205,146 @@
 
 	<div class="container-fluid container-lg">
 		<div class="row justify-content-center">
+			<div class="table-responsive col-md-6 col-lg-6 col-12 mt-4 me-md-auto ">
 		
-			<div class="col-md-5 col-lg-6 col-xl-5 col-10 mt-4 me-md-auto ">
 				<div class="p-1 tIncomeExpense">Incomes</div>
+
+				<table class="table table-bordered mb-0">
+					
+				<?php
+					
+				require_once "connectSQL.php";
 				
-				<div class="incomes/expenses">
+				$connect = new mysqli($host, $db_user, $db_password, $db_name);
 				
-				</div>
+				$resultRowIncome = $connect->query("SELECT * FROM incomes, incomes_category_assigned_to_users WHERE incomes.userId= ".$_SESSION['id']." AND incomes.userId = incomes_category_assigned_to_users.userId AND incomes.incomeCategoryAssignedToUserId = incomes_category_assigned_to_users.id AND incomes.dateOfIncome >= '$date1' AND incomes.dateOfIncome <= '$date2' ORDER BY incomes.incomeCategoryAssignedToUserId ASC");
 				
-				<div class="sumInExIn p-2">
-					Total: 0 PLN
-				</div>
+				$numRowsIncome = mysqli_num_rows($resultRowIncome);
+				
+				if($numRowsIncome>=1)
+				{
+					echo"
+					<tr style='font-weight: 700;'>
+						<td>Category</td>
+						<td scope='col'>Date</td>
+						<td scope='col'>Amount</td>
+						<td scope='col'>Comment</td>
+					</tr>";
+				}
+				
+				$summaryIncome = 0;
+				
+				for ($i = 1; $i <= $numRowsIncome; $i++) 
+				{
+					
+					$row = $resultRowIncome->fetch_assoc();
+					$catName = $row['name'];	
+					$date = $row['dateOfIncome'];
+					$amount = $row['amount'];
+					$comment = $row['incomeComment'];
+					
+					$summaryIncome += $amount;
+					
+					echo"
+					<tr>
+						<td>$catName</td>
+						<td>$date</td>
+						<td align='right'>$amount PLN</td>
+						<td>$comment</td>
+					</tr>";								
+				}
+
+				echo"</table>
+				<table class='table'>
+					<tr class='sumInExIn p-2'>
+						<td align='left'>TOTAL</td>
+						<td align='right' colspan='3'>".$summaryIncome." PLN</td>
+					</tr>
+				</table>";
+				?>	
+
 			</div>
 			
-			<div class="col-md-5 col-lg-6 col-xl-5 col-10 mt-4">
+			<div class="table-responsive col-md-6 col-lg-6 col-xl-6 col-12 mt-4">
+				
 				<div class="tIncomeExpense p-1">Expenses</div>
 				
-				<div class="incomes/expenses">
-					
-				</div>
+				<table class="table table-bordered mb-0">
 				
-				<div class="sumInExIn p-2">
-					Total: 0 PLN
-				</div>
+				<?php
+				$resultRowExpense = $connect->query("SELECT * FROM expenses, expenses_category_assigned_to_users WHERE expenses.userId= ".$_SESSION['id']." AND expenses.userId = expenses_category_assigned_to_users.userId AND expenses.expenseCategoryAssignedToUserId = expenses_category_assigned_to_users.id AND expenses.dateOfExpense >= '$date1' AND expenses.dateOfExpense <= '$date2' ORDER BY expenses.expenseCategoryAssignedToUserId ASC");
+				
+				$numRowsExpense = mysqli_num_rows($resultRowExpense);
+				
+				if($numRowsExpense >= 1)
+				{
+					echo"
+					<tr style='font-weight: 700'>
+						<td>Category</td>
+						<td>Date</td>
+						<td>Amount</td>
+						<td>Comment</td>
+					</tr>";
+				}
+				
+				$summaryExpense = 0;
+				
+				for ($i = 1; $i <= $numRowsExpense; $i++) 
+				{
+					
+					$row = $resultRowExpense->fetch_assoc();
+					$catName = $row['name'];	
+					$date = $row['dateOfExpense'];
+					$amount = $row['amount'];
+					$comment = $row['expenseComment'];
+					
+						$summaryExpense += $amount;
+						
+						echo"
+						<tr>
+							<td>$catName</td>
+							<td>$date</td>
+							<td align='right'>$amount PLN</td>
+							<td>$comment</td>
+						</tr>";								
+				}
+
+				echo"</table>
+				<table class='table'>
+					<tr class='sumInExIn p-2'>
+						<td align='left'>TOTAL</td>
+						<td align='right' colspan='3'>".$summaryExpense." PLN</td>
+					</tr>
+				</table>";
+				
+				$connect->close();?>
+						
 			</div>
 		</div>
 	
 	
 		<div class="row justify-content-center">
-			<div class="financeBalance col-3 mt-5 p-2">
-				Balance: 0 PLN
+			<div class="financeBalance col-5 col-md-4 col-lg-3 mt-5 p-2" style="border-radius: 5px">
+				<?php
+					$balance = $summaryIncome - $summaryExpense;
+					echo "<div>Balance: ".$balance." PLN</div>"; 
+					
+				?>
+				</div>
+				<?php
+				if($balance > 0)
+				{
+					echo "<div class='p-3' style='color:#31ad39; font-weight: 700;font-size: 18px;'>Perfect, you have savings! Keep it up!</div>";
+				}
+				else if($balance < 0)
+				{
+					echo "<div class='p-3' style='color:#cf1919; font-weight: 700; font-size: 18px;'>You are losing money! Improve your money management and start saving!</div>";
+				}
+				else
+				{
+					echo"<div class='p-3' style='color:#4f4646; font-weight: 700; font-size: 18px;'>No losses and no savings!</div>";
+				}
+				?>
 			</div>
 		</div>
 

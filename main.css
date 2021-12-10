@@ -387,6 +387,7 @@ ul > li > div > a:hover
 {
 	background-color: #9a9cab;
 	font-weight: 700;
+	border-radius: 5px;
 }
 
 .choiceTimeButton:hover > button
@@ -437,4 +438,9 @@ ul > li > div > a:hover
 .footerButtons:hover
 {
 	opacity: 0.91;
+}
+
+.headerTable
+{
+	font-weight: 700;
 }
