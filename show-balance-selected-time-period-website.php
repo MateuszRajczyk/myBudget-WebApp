@@ -114,7 +114,7 @@
 	</nav>
 
 
-	<div class="modal" tabindex="-1" role="dialog" id="dateModal">
+	<div class="modal hide fade in" tabindex="-1" role="dialog" id="dateModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -278,7 +278,8 @@
 				
 				<?php
 					$resultRowExpense = $connect->query("SELECT * FROM expenses, expenses_category_assigned_to_users WHERE expenses.userId= ".$_SESSION['id']." AND expenses.userId = expenses_category_assigned_to_users.userId AND expenses.expenseCategoryAssignedToUserId = expenses_category_assigned_to_users.id AND expenses.dateOfExpense >= '$date1' AND expenses.dateOfExpense <= '$date2' ORDER BY expenses.expenseCategoryAssignedToUserId ASC");
-					
+					$resultPayment = $connect->query("SELECT * FROM expenses, payment_methods_assigned_to_users WHERE expenses.userId= ".$_SESSION['id']." AND expenses.userId = payment_methods_assigned_to_users.userId AND expenses.paymentMethodAssignedToUserId = payment_methods_assigned_to_users.id AND expenses.dateOfExpense >= '$date1' AND expenses.dateOfExpense <= '$date2' ORDER BY expenses.expenseCategoryAssignedToUserId ASC");
+			
 					$numRowsExpense = mysqli_num_rows($resultRowExpense);
 					
 					if($numRowsExpense>=1)
@@ -286,6 +287,7 @@
 						echo"
 						<tr style='font-weight: 700'>
 							<td>Category</td>
+							<td>Payment</td>
 							<td>Date</td>
 							<td>Amount</td>
 							<td>Comment</td>
@@ -298,7 +300,9 @@
 					{
 						
 						$row = $resultRowExpense->fetch_assoc();
+						$rowPay = $resultPayment->fetch_assoc();
 						$catName = $row['name'];	
+						$paymentName = $rowPay['name'];
 						$date = $row['dateOfExpense'];
 						$amount = $row['amount'];
 						$comment = $row['expenseComment'];
@@ -308,6 +312,7 @@
 						echo"
 						<tr>
 							<td>$catName</td>
+							<td>$paymentName</td>
 							<td>$date</td>
 							<td align='right'>$amount PLN</td>
 							<td>$comment</td>
