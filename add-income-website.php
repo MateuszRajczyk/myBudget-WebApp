@@ -2,7 +2,6 @@
 
 	session_start();
 	
-	require_once "autoLogOut.php";
 	
 	if(isset($_POST['amount']))
 	{	
@@ -200,7 +199,7 @@
 					<button type="button" class="close closeButton" data-bs-dismiss="modal">x</button>
 				</div>
 				
-				<form class="mx-auto" method="post">
+				<form class="mx-auto" method="post" action="show-balance-selected-time-period-website.php">
 					<div class="modal-body">
 						<h5>Select a start date and end date for look at balance in choosing time period</h5>
 						
@@ -208,14 +207,23 @@
 							<div class="form-group col-5 mt-3 mb-3">
 								<span>Start date</span>
 								
-								<input class="form-control" type="date">
+								<input class="form-control" type="date" name="date1" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							
 							<div class="form-group col-5 mt-3 mb-3">
 								<span>End date</span>
 								
-								<input class="form-control" type="date">
+								<input class="form-control" type="date" name="date2" value="<?php echo date('Y-m-d'); ?>">
 							</div>
+							
+							<?php
+							
+							if(isset($_POST['date1']))
+							{
+								header('Location: show-balance-selected-time-period-website.php');
+							}
+							
+							?>
 						</div>
 					</div>
 					
@@ -255,7 +263,7 @@
 	
 	</div>
 	
-		<div class="modal hide fade in" tabindex="-1" role="dialog" id="incomeModalSuccess" data-bs-backdrop="static">
+	<div class="modal hide fade in" tabindex="-1" role="dialog" id="incomeModalSuccess" data-bs-backdrop="static">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content modal-xl">
 				<div class="modal-header">			
@@ -383,7 +391,7 @@
 					</div>
 					
 					
-					<button class="btn mt-4 me-5 addExpenseB px-4 py-2 " type="submit"><i class="icon-floppy"></i>Save</button>		
+					<button class="btn mt-4 me-5 addExpenseB px-4 py-2 " id="buttonSub" type="submit"><i class="icon-floppy"></i>Save</button>					
 					
 					<a data-bs-toggle="modal" data-bs-target="#incomeModalCancel"><button class="btn addExpenseB mt-4 px-4 py-2"><i class="icon-cancel-circled"></i>Cancel</button></a>
 					
@@ -401,5 +409,7 @@
 		
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 	<script src="BootstrapJs/bootstrap.min.js"></script>
+	<script src="main.js"></script>
+	<script src="jquery-3.6.0.min.js"></script>
 </body>
 </html>

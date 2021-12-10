@@ -1,7 +1,7 @@
 <?php
 	session_start();
+	
 ?>
-
 <!DOCTYPE HTML>
 <html lang="pl">
 <head>
@@ -140,14 +140,6 @@
 								<input class="form-control" type="date" name="date2" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							
-							<?php
-							
-							if(isset($_POST['date1']))
-							{
-								header('Location: show-balance-selected-time-period-website.php');
-							}
-							
-							?>
 						</div>
 					</div>
 					
@@ -168,32 +160,45 @@
 			<div class="row ">
 				<div class="col-12 mt-2 ">
 					<h5>
-						<span class="chosenTimePeriod" ><?php $date1 ='01.'.(date("m")-1).'.'.date("Y"); echo $date1; 
+					
+						<span class="chosenTimePeriod" ><?php
+
+						if($_POST['date1'] >= $_POST['date2'])
+						{
+							$date1 = $_POST['date2']; 
+							$date2 = $_POST['date1']; 
+						}
+						else if($_POST['date1'] <= $_POST['date2'])
+						{
+							$date1 = $_POST['date1'];
+							$date2 = $_POST['date2'];
+						}
 						
-						$date1 = date("Y").'-'.(date("m")-1).'-01';
+						$dateShow1 = DateTime::createFromFormat("Y-m-d", $date1);
+						
+						echo $dateShow1->format("d.m.Y");
 						
 						?></span>
 						
 						-
 						
 						<span class="chosenTimePeriod" ><?php
-							require_once "show-balance-Functions.php";
-							
-							$date2 = numbersOfDaysInMonth((date("m")-1), date("Y")).'.'.(date("m")-1).'.'.date("Y");
-							
-							echo $date2;
-							
-							$date2 = date("Y").'-'.(date("m")-1).'-'.numbersOfDaysInMonth((date("m")-1), date("Y"));
+						
+							$dateShow2 = DateTime::createFromFormat("Y-m-d", $date2);
+						
+							echo $dateShow2->format("d.m.Y");
 						?></span>
+					
+					
 					</h5>
 					
 					<div class="btn-group choiceTimeButton me-4 mt-1">
 						<button class="btn dropdown-toggle  " type="button" id="submenu" data-bs-toggle="dropdown" ><i class="icon-calendar"></i>Choose date</button>
 						
 						<div class="dropdown-menu dropdown-menu-end" aria-labelledby="submenu">
-							<a class="dropdown-item" href="show-balance-current-month-website.php" >Current Month</a>
-							<a class="dropdown-item" href="show-balance-last-month-website.php" >Last Month</a>
-							<a class="dropdown-item" href="show-balance-current-year-website.php" >Current Year</a>
+							<a class="dropdown-item" href="show-balance-current-month-website.php">Current Month</a>
+							<a class="dropdown-item" href="show-balance-last-month-website.php">Last Month</a>
+							<a class="dropdown-item" href="show-balance-current-year-website.php">Current Year</a>
 							<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal">Selected period</a>
 						</div>
 					</div>
@@ -204,6 +209,7 @@
 
 	<div class="container-fluid container-lg">
 		<div class="row justify-content-center">
+		
 			<div class="table-responsive col-md-6 col-lg-6 col-12 mt-4 me-md-auto ">
 		
 				<div class="p-1 tIncomeExpense">Incomes</div>
@@ -242,7 +248,6 @@
 					$amount = $row['amount'];
 					$comment = $row['incomeComment'];
 					
-					
 					$summaryIncome += $amount;
 					
 					echo"
@@ -251,7 +256,7 @@
 						<td>$date</td>
 						<td align='right'>$amount PLN</td>
 						<td>$comment</td>
-					</tr>";								
+					</tr>";							
 				}
 
 				echo"</table>
@@ -272,42 +277,42 @@
 				<table class="table table-bordered mb-0">
 				
 				<?php
-				$resultRowExpense = $connect->query("SELECT * FROM expenses, expenses_category_assigned_to_users WHERE expenses.userId= ".$_SESSION['id']." AND expenses.userId = expenses_category_assigned_to_users.userId AND expenses.expenseCategoryAssignedToUserId = expenses_category_assigned_to_users.id ORDER BY expenses.expenseCategoryAssignedToUserId ASC");
-				
-				$numRowsExpense = mysqli_num_rows($resultRowExpense);
-				
-				if($numRowsExpense >= 1)
-				{
-					echo"
-					<tr style='font-weight: 700'>
-						<td>Category</td>
-						<td>Date</td>
-						<td>Amount</td>
-						<td>Comment</td>
-					</tr>";
-				}
-				
-				$summaryExpense = 0;
-				
-				for ($i = 1; $i <= $numRowsExpense; $i++) 
-				{
+					$resultRowExpense = $connect->query("SELECT * FROM expenses, expenses_category_assigned_to_users WHERE expenses.userId= ".$_SESSION['id']." AND expenses.userId = expenses_category_assigned_to_users.userId AND expenses.expenseCategoryAssignedToUserId = expenses_category_assigned_to_users.id AND expenses.dateOfExpense >= '$date1' AND expenses.dateOfExpense <= '$date2' ORDER BY expenses.expenseCategoryAssignedToUserId ASC");
 					
-					$row = $resultRowExpense->fetch_assoc();
-					$catName = $row['name'];	
-					$date = $row['dateOfExpense'];
-					$amount = $row['amount'];
-					$comment = $row['expenseComment'];
+					$numRowsExpense = mysqli_num_rows($resultRowExpense);
 					
-					$summaryExpense += $amount;
+					if($numRowsExpense>=1)
+					{
+						echo"
+						<tr style='font-weight: 700'>
+							<td>Category</td>
+							<td>Date</td>
+							<td>Amount</td>
+							<td>Comment</td>
+						</tr>";
+					}
 					
-					echo"
-					<tr>
-						<td>$catName</td>
-						<td>$date</td>
-						<td align='right'>$amount PLN</td>
-						<td>$comment</td>
-					</tr>";							
-				}
+					$summaryExpense = 0;
+					
+					for ($i = 1; $i <= $numRowsExpense; $i++) 
+					{
+						
+						$row = $resultRowExpense->fetch_assoc();
+						$catName = $row['name'];	
+						$date = $row['dateOfExpense'];
+						$amount = $row['amount'];
+						$comment = $row['expenseComment'];
+						
+						$summaryExpense += $amount;
+						
+						echo"
+						<tr>
+							<td>$catName</td>
+							<td>$date</td>
+							<td align='right'>$amount PLN</td>
+							<td>$comment</td>
+						</tr>";								
+					}
 
 				echo"</table>
 				<table class='table'>

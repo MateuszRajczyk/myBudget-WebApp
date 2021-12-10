@@ -41,7 +41,6 @@
 					
 					unset($_SESSION['error']);
 					$result->free_result();
-					$_SESSION['last_login_timestamp'] = time();
 					header('Location: home-user-website.php');
 				}
 				else 

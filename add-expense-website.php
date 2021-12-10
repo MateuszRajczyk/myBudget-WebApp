@@ -2,7 +2,6 @@
 
 	session_start();
 	
-	require_once "autoLogOut.php";
 	
 	if(isset($_POST['amount']))
 	{	
@@ -213,7 +212,7 @@
 					<button type="button" class="close closeButton" data-bs-dismiss="modal">x</button>
 				</div>
 				
-				<form class="mx-auto" method="post">
+				<form class="mx-auto" method="post" action="show-balance-selected-time-period-website.php">
 					<div class="modal-body">
 						<h5>Select a start date and end date for look at balance in choosing time period</h5>
 						
@@ -221,14 +220,23 @@
 							<div class="form-group col-5 mt-3 mb-3">
 								<span>Start date</span>
 								
-								<input class="form-control" type="date">
+								<input class="form-control" type="date" name="date1" value="<?php echo date('Y-m-d'); ?>">
 							</div>
 							
 							<div class="form-group col-5 mt-3 mb-3">
 								<span>End date</span>
 								
-								<input class="form-control" type="date">
+								<input class="form-control" type="date" name="date2" value="<?php echo date('Y-m-d'); ?>">
 							</div>
+							
+							<?php
+							
+							if(isset($_POST['date1']))
+							{
+								header('Location: show-balance-selected-time-period-website.php');
+							}
+							
+							?>
 						</div>
 					</div>
 					
