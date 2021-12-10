@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 02 Gru 2021, 11:41
+-- Czas generowania: 10 Gru 2021, 16:27
 -- Wersja serwera: 10.4.22-MariaDB
 -- Wersja PHP: 8.0.13
 
@@ -24,57 +24,132 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `category_finance`
+-- Struktura tabeli dla tabeli `expenses`
 --
 
-CREATE TABLE `category_finance` (
+CREATE TABLE `expenses` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `categoryName` text COLLATE utf8_polish_ci NOT NULL
+  `amount` decimal(8,2) NOT NULL,
+  `expenseCategoryAssignedToUserId` int(11) NOT NULL,
+  `paymentMethodAssignedToUserId` int(11) NOT NULL,
+  `expenseComment` varchar(100) COLLATE utf8_polish_ci NOT NULL,
+  `dateOfExpense` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `expense`
+-- Struktura tabeli dla tabeli `expenses_category_assigned_to_users`
 --
 
-CREATE TABLE `expense` (
+CREATE TABLE `expenses_category_assigned_to_users` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `amount` float NOT NULL,
-  `category` text COLLATE utf8_polish_ci NOT NULL,
-  `paymentMethod` text COLLATE utf8_polish_ci NOT NULL,
-  `comment` text COLLATE utf8_polish_ci NOT NULL,
-  `date` date NOT NULL
+  `name` varchar(50) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `income`
+-- Struktura tabeli dla tabeli `expenses_category_default`
 --
 
-CREATE TABLE `income` (
+CREATE TABLE `expenses_category_default` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Zrzut danych tabeli `expenses_category_default`
+--
+
+INSERT INTO `expenses_category_default` (`id`, `name`) VALUES
+(1, 'food'),
+(2, 'house'),
+(3, 'transport'),
+(4, 'telecom');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `incomes`
+--
+
+CREATE TABLE `incomes` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `amount` float NOT NULL,
-  `category` text COLLATE utf8_polish_ci NOT NULL,
-  `comment` text COLLATE utf8_polish_ci NOT NULL,
-  `date` date NOT NULL
+  `amount` decimal(8,2) NOT NULL,
+  `incomeCategoryAssignedToUserId` int(11) NOT NULL,
+  `incomeComment` varchar(100) COLLATE utf8_polish_ci NOT NULL,
+  `dateOfIncome` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `payment_methods`
+-- Struktura tabeli dla tabeli `incomes_category_assigned_to_users`
 --
 
-CREATE TABLE `payment_methods` (
+CREATE TABLE `incomes_category_assigned_to_users` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
-  `paymentMethodName` text CHARACTER SET utf32 COLLATE utf32_polish_ci NOT NULL
+  `name` varchar(50) COLLATE utf8_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `incomes_category_default`
+--
+
+CREATE TABLE `incomes_category_default` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `incomes_category_default`
+--
+
+INSERT INTO `incomes_category_default` (`id`, `name`) VALUES
+(1, 'salary'),
+(2, 'bank interest'),
+(3, 'trade'),
+(4, 'other');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `payment_methods_assigned_to_users`
+--
+
+CREATE TABLE `payment_methods_assigned_to_users` (
+  `id` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `payment_methods_default`
+--
+
+CREATE TABLE `payment_methods_default` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) COLLATE utf8_polish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+
+--
+-- Zrzut danych tabeli `payment_methods_default`
+--
+
+INSERT INTO `payment_methods_default` (`id`, `name`) VALUES
+(1, 'cash'),
+(2, 'debit card'),
+(3, 'credit card'),
+(4, 'bitcoin');
 
 -- --------------------------------------------------------
 
@@ -94,27 +169,51 @@ CREATE TABLE `users` (
 --
 
 --
--- Indeksy dla tabeli `category_finance`
+-- Indeksy dla tabeli `expenses`
 --
-ALTER TABLE `category_finance`
+ALTER TABLE `expenses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `expense`
+-- Indeksy dla tabeli `expenses_category_assigned_to_users`
 --
-ALTER TABLE `expense`
+ALTER TABLE `expenses_category_assigned_to_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `income`
+-- Indeksy dla tabeli `expenses_category_default`
 --
-ALTER TABLE `income`
+ALTER TABLE `expenses_category_default`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeksy dla tabeli `payment_methods`
+-- Indeksy dla tabeli `incomes`
 --
-ALTER TABLE `payment_methods`
+ALTER TABLE `incomes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `incomes_category_assigned_to_users`
+--
+ALTER TABLE `incomes_category_assigned_to_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `incomes_category_default`
+--
+ALTER TABLE `incomes_category_default`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `payment_methods_assigned_to_users`
+--
+ALTER TABLE `payment_methods_assigned_to_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeksy dla tabeli `payment_methods_default`
+--
+ALTER TABLE `payment_methods_default`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -128,28 +227,52 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT dla tabeli `category_finance`
+-- AUTO_INCREMENT dla tabeli `expenses`
 --
-ALTER TABLE `category_finance`
+ALTER TABLE `expenses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `expense`
+-- AUTO_INCREMENT dla tabeli `expenses_category_assigned_to_users`
 --
-ALTER TABLE `expense`
+ALTER TABLE `expenses_category_assigned_to_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `income`
+-- AUTO_INCREMENT dla tabeli `expenses_category_default`
 --
-ALTER TABLE `income`
+ALTER TABLE `expenses_category_default`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT dla tabeli `incomes`
+--
+ALTER TABLE `incomes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT dla tabeli `payment_methods`
+-- AUTO_INCREMENT dla tabeli `incomes_category_assigned_to_users`
 --
-ALTER TABLE `payment_methods`
+ALTER TABLE `incomes_category_assigned_to_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `incomes_category_default`
+--
+ALTER TABLE `incomes_category_default`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT dla tabeli `payment_methods_assigned_to_users`
+--
+ALTER TABLE `payment_methods_assigned_to_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT dla tabeli `payment_methods_default`
+--
+ALTER TABLE `payment_methods_default`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT dla tabeli `users`

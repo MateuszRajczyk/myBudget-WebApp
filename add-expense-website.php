@@ -203,7 +203,7 @@
 	
 	</nav>
 	
-	<div class="modal" tabindex="-1" role="dialog" id="dateModal">
+	<div class="modal hide fade in" tabindex="-1" role="dialog" id="dateModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">

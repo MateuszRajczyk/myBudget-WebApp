@@ -60,6 +60,7 @@
 							unset($_SESSION['rememberCategory']);
 							unset($_SESSION['rememberComment']);
 							unset($_SESSION['rememberDate']);
+							
 						}
 					}
 					else
@@ -99,6 +100,7 @@
 	<link rel="stylesheet" href="main.css" type="text/css" />
 
 	<script src="main.js"></script>
+
 	
 </head>
 
@@ -190,7 +192,7 @@
 	
 	</nav>
 
-	<div class="modal" tabindex="-1" role="dialog" id="dateModal">
+	<div class="modal hide fade in" tabindex="-1" role="dialog" id="dateModal">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -410,6 +412,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 	<script src="BootstrapJs/bootstrap.min.js"></script>
 	<script src="main.js"></script>
-	<script src="jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
 </body>
 </html>
