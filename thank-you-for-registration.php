@@ -41,8 +41,7 @@
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
-	
-	<script src="main.js"></script>
+
 	
 </head>
 

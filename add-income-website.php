@@ -61,6 +61,12 @@
 							unset($_SESSION['rememberComment']);
 							unset($_SESSION['rememberDate']);
 							
+							echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>";
+							echo "<script>
+							$(document).ready(function(){
+								$('#incomeModalSuccess').modal('show');
+							});
+							</script>";							
 						}
 					}
 					else
@@ -98,8 +104,8 @@
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<script src="main.js"></script>
 
 	
 </head>
@@ -411,7 +417,6 @@
 		
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 	<script src="BootstrapJs/bootstrap.min.js"></script>
-	<script src="main.js"></script>
-	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+
 </body>
 </html>

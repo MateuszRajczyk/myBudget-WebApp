@@ -27,8 +27,8 @@
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
+	<link rel="stylesheet" href="main1.css" type="text/css" />
 
-	<script src="main.js"></script>
 </head>
 
 <body>
@@ -170,6 +170,7 @@
 	</div>
 	
 	<div class="bg-description">
+		<div class="p-2 nameLabel"><?php echo "Hello, ".$_SESSION['username']."!";?></div>
 		<section class="container-fluid ">
 			<div class="row justify-content-center g-0" >
 				<img src="img/backg.jpg" id="backgroundImage" class="mt-2 mb-2" alt="background image, computer to menage finances"/>

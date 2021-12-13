@@ -27,7 +27,6 @@
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
-	<script src="main.js"></script>
 	
 </head>
 
@@ -130,7 +129,7 @@
 						<input type="checkbox" value="rememberMe" id="rememberMe" ><label for="rememberMe" class="ms-2">Remember me</label>
 					</div>
 					
-					<button class="px-3 py-2 mt-2 signButton" type="submit" onclick="rememberMe()">
+					<button class="px-3 py-2 mt-2 signButton" type="submit" >
 						<i class="icon-login"></i>
 						Sign In
 					</button>

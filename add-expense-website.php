@@ -73,6 +73,13 @@
 							unset($_SESSION['rememberPaymentM']);
 							unset($_SESSION['rememberComment']);
 							unset($_SESSION['rememberDate']);
+							
+							echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>";
+							echo "<script>
+							$(document).ready(function(){
+								$('#expenseModalSuccess').modal('show');
+							});
+							</script>";
 						}
 					}
 					else
@@ -110,8 +117,7 @@
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
-
-	<script src="main.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 	
 </head>
 
