@@ -28,6 +28,8 @@
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
 	
+	<script src="main.js"></script>
+	
 </head>
 
 <body>
@@ -98,7 +100,7 @@
 						<div class="inputIcon">
 							<i class="icon-mail-alt"></i>
 						</div>
-						<input type="text" class="form-control" name="email" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'" style="height: 40px">
+						<input type="text" class="form-control" name="email" value="<?php if(isset($_COOKIE['email'])) { echo $_COOKIE['email'];} ?>" placeholder="email@adress.com" onfocus="this.placeholder=''" onblur="this.placeholder='email@adress.com'" style="height: 40px">
 					</div>
 					
 					<div class="input-group-text">
@@ -108,7 +110,7 @@
 					
 						</div>
 					
-						<input type="password" id="myInput" class="form-control" name="password" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="height: 40px">
+						<input type="password" id="myInput" class="form-control" name="password" value="<?php if(isset($_COOKIE['password'])) { echo $_COOKIE['password'];} ?>" placeholder="password" onfocus="this.placeholder=''" onblur="this.placeholder='password'" style="height: 40px">
 					
 						<button type="button" class="inputIcon" id="toggler" onclick="showPassword()">
 					
@@ -126,7 +128,7 @@
 ?>
 					
 					<div class="input-group-text">
-						<input type="checkbox" value="rememberMe" id="rememberMe" ><label for="rememberMe" class="ms-2">Remember me</label>
+						<input type="checkbox" name="remember" value="rememberMe" id="rememberMe" <?php if(isset($_COOKIE['email']) && isset($_COOKIE['password'])) { echo "checked";}?> ><label for="rememberMe" class="ms-2">Remember me</label>
 					</div>
 					
 					<button class="px-3 py-2 mt-2 signButton" type="submit" >

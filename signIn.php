@@ -39,6 +39,20 @@
 					$_SESSION['username'] = $row['username'];
 					$_SESSION['email'] = $row['email'];
 					
+					if(!empty($_POST['remember']))
+					{
+						setcookie("email", $_POST['email'], time()+(10*365*24*60*60));
+						setcookie("password", $_POST['password'], time()+(10*365*24*60*60));
+					}
+					else
+					{
+						if(isset($_COOKIE['email']) && isset($_COOKIE['password']))
+						{
+							setcookie("email", "");
+							setcookie("password", "");
+						}
+					}
+					
 					unset($_SESSION['error']);
 					$result->free_result();
 					header('Location: home-user-website.php');
