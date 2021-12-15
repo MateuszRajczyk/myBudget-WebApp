@@ -93,7 +93,7 @@
 						$connect->query("INSERT INTO expenses_category_assigned_to_users(userId, name) SELECT users.id, expenses_category_default.name FROM users, expenses_category_default WHERE users.username='$userName'");
 						$connect->query("INSERT INTO payment_methods_assigned_to_users(userId, name) SELECT users.id, payment_methods_default.name FROM users, payment_methods_default WHERE users.username='$userName'");
 						$_SESSION['registerSuccessful']=true;
-						header('Location: thank-you-for-registration.php');
+						header('Location: after-registration');
 					}
 					else
 					{
@@ -133,7 +133,7 @@
 	<link href='https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap' rel='stylesheet'>
 	<link rel="stylesheet" href="main.css" type="text/css" />
-	
+	<script src="main.js"></script>
 	
 </head>
 
@@ -142,7 +142,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between mb-4">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="index.php" class="mButton">My Home Budget</a>
+						<a href="home-budget" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -268,7 +268,7 @@
 						Sign Up
 					</button>
 					
-					<div>Already have an account?<a href="index.php" class="ms-1 SignIn">Sign In</a></div>
+					<div>Already have an account?<a href="home-budget" class="ms-1 SignIn">Sign In</a></div>
 					
 				</form>
 			</div>
