@@ -115,7 +115,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="index.php" class="mButton">My Home Budget</a>
+						<a href="home-budget" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -142,15 +142,15 @@
 					<ul class="navbar-nav">
 					
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="home-user-website.php"><i class="icon-home"></i>Home</a>
+							<a class="nav-link" href="user-main"><i class="icon-home"></i>Home</a>
 						</li>
 						
 						<li class="nav-item disabled col-lg-2">
-							<a class="nav-link" href="add-income-website.php"><i class="icon-money"></i>Add Income</a>
+							<a class="nav-link" href="add-income"><i class="icon-money"></i>Add Income</a>
 						</li>
 						
 						<li class="nav-item col-lg-2">
-							<a class="nav-link" href="add-expense-website.php"><i class="icon-dollar"></i>Add Expense</a>
+							<a class="nav-link" href="add-expense"><i class="icon-dollar"></i>Add Expense</a>
 						</li>
 						
 						<li class="nav-item dropdown col-lg-2">
@@ -158,9 +158,9 @@
 							
 							<div class="dropdown-menu" aria-labelledby="submenu">
 							
-								<a class="dropdown-item" href="show-balance-current-month-website.php"> Current Month </a>
-								<a class="dropdown-item" href="show-balance-last-month-website.php"> Last Month </a>
-								<a class="dropdown-item" href="show-balance-current-year-website.php"> Current Year </a>
+								<a class="dropdown-item" href="current-month"> Current Month </a>
+								<a class="dropdown-item" href="last-month"> Last Month </a>
+								<a class="dropdown-item" href="current-year"> Current Year </a>
 								<a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#dateModal"> Selected Period </a>
 							
 							</div>
@@ -207,7 +207,7 @@
 					<button type="button" class="close closeButton" data-bs-dismiss="modal">x</button>
 				</div>
 				
-				<form class="mx-auto" method="post" action="show-balance-selected-time-period-website.php">
+				<form class="mx-auto" method="post" action="selected-period">
 					<div class="modal-body">
 						<h5>Select a start date and end date for look at balance in choosing time period</h5>
 						
@@ -228,7 +228,7 @@
 							
 							if(isset($_POST['date1']))
 							{
-								header('Location: show-balance-selected-time-period-website.php');
+								header('Location: selected-period');
 							}
 							
 							?>
@@ -260,7 +260,7 @@
 				</div>
 				
 				<div class="modal-footer mt-2 mb-2">
-					<a class="btn footerButtons" href="home-user-website.php">YES</a>
+					<a class="btn footerButtons" href="user-main">YES</a>
 					
 					<button class="btn footerButtons" type="button" data-bs-dismiss="modal">NO</button>
 					

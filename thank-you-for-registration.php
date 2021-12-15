@@ -4,7 +4,7 @@
 	
 	if (!isset($_SESSION['registerSuccessful']))
 	{
-		header('Location: index.php');
+		header('Location: home-budget');
 		exit();
 	}
 	else
@@ -50,7 +50,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between mb-4">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="index.php" class="mButton">My Home Budget</a>
+						<a href="home-budget" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -72,7 +72,7 @@
 					<h4 class="text-success"><i class="icon-ok me-2"></i>Registered successfully</h4>
 					<p style="color: #383733;">Thank you for registration! Now you can sign in for your new account.</p>
 					
-					<a class="btn btn-lg px-3 py-2 mt-3 signButton" href="index.php">
+					<a class="btn btn-lg px-3 py-2 mt-3 signButton" href="home-budget">
 						<i class="icon-user-add"></i>
 						Sign In
 					</a>

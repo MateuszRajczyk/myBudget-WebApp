@@ -4,7 +4,7 @@
 	
 	if ((!isset($_POST['email'])) || (!isset($_POST['password'])))
 	{
-		header('Location: index.php');
+		header('Location: home-budget');
 		exit();
 	}
 	
@@ -55,18 +55,18 @@
 					
 					unset($_SESSION['error']);
 					$result->free_result();
-					header('Location: home-user-website.php');
+					header('Location: user-main');
 				}
 				else 
 				{
 					$_SESSION['error'] = '<span style="color:red"><span class="me-2 text-left" style="font-weight: 700; font-size: 23px;">x</span>Incorrect entered email or password!</span>';
-					header('Location: index.php');
+					header('Location: home-budget');
 				}
 				
 			} else {
 				
 				$_SESSION['error'] = '<span style="color:red"><span class="me-2 text-left" style="font-weight: 700; font-size: 23px;">x</span>Incorrect entered email or password!</span>';
-				header('Location: index.php');
+				header('Location: home-budget');
 				
 			}
 			

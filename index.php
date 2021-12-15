@@ -4,7 +4,7 @@
 	
 	if ((isset($_SESSION['loggedIn'])) && ($_SESSION['loggedIn']==true))
 	{
-		header('Location: home-user-website.php');
+		header('Location: user-main');
 		exit();
 	}
 
@@ -37,7 +37,7 @@
 			<header>
 				<div class="row justify-content-sm-evenly justify-content-md-between mb-4">
 					<h1 class="text-md-start col-lg-6 col-md-8 mt-4 logo">
-						<a href="index.php" class="mButton">My Home Budget</a>
+						<a href="home-budget" class="mButton">My Home Budget</a>
 						<p class="col-sm-12 text-md-start subtitle">Application to menagement your home finance</p>
 					</h1>
 
@@ -144,7 +144,7 @@
 					<div>Have no account yet? <br/> Register here:</div>
 					
 					
-					<a class="btn btn-lg px-3 py-2 mt-3 signButton" href="register-website.php">
+					<a class="btn btn-lg px-3 py-2 mt-3 signButton" href="sign-up">
 						<i class="icon-user-add"></i>
 						Sign Up
 					</a>
